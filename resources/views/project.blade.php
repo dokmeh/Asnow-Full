@@ -14,6 +14,7 @@
 
                     @foreach ($project->awards as $award)
                         <p>{{ $award->name }}</p>
+                        <img src="{{ $award->photo->image }}" width="100" alt="">
                     @endforeach
                 @endif
 
