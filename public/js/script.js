@@ -8,10 +8,10 @@ $(document).ready(function () {
         loadAjax($(this).find('a').attr('href'));
         return false;
     });
-    $(window).on('popstate', function () {
-        url = window.location.href.replace($('base').attr('href'), '');
-        loadAjax(url);
-    });
+    // $(window).on('popstate', function () {
+    //     url = window.location.href.replace($('base').attr('href'), '');
+    //     loadAjax(url);
+    // });
     $('.menu-but').click(function () {
         $(this).toggleClass('menu-bt-op');
         if ($('.linehand').hasClass('active')) {
@@ -25,30 +25,30 @@ $(document).ready(function () {
     });
 });
 var loaded = false;
-function loadAjax(url) {
-    var token = $('meta[name="_token"]').attr('content');
-    loaded    = false;
-    $.ajax({
-        url       : url,
-        type      : 'get',
-        dataType  : 'html',
-        data      : {"_token": token},
-        cache     : false,
-        beforeSend: function (xhr) {
-            $('.inner-ajax *').off();
-        },
-        success   : function (result, status, xhr) {
-            $('.inner-ajax').html(result);
-            console.log($('body').attr('data-page'));
-            window[$('body').attr('data-page')]();
-            loaded = true;
-            setTimeout(function () {
-                $('.loading').removeClass('loading-open');
-            }, 5000);
-
-        }
-    });
-}
+// function loadAjax(url) {
+//     var token = $('meta[name="_token"]').attr('content');
+//     loaded    = false;
+//     $.ajax({
+//         url       : url,
+//         type      : 'get',
+//         dataType  : 'html',
+//         data      : {"_token": token},
+//         cache     : false,
+//         beforeSend: function (xhr) {
+//             $('.inner-ajax *').off();
+//         },
+//         success   : function (result, status, xhr) {
+//             $('.inner-ajax').html(result);
+//             console.log($('body').attr('data-page'));
+//             window[$('body').attr('data-page')]();
+//             loaded = true;
+//             setTimeout(function () {
+//                 $('.loading').removeClass('loading-open');
+//             }, 2000);
+//
+//         }
+//     });
+// }
 
 //Pages functions
 //Home

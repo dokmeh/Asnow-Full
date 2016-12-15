@@ -14,7 +14,7 @@
 		{
 			$page = 'home';
 
-			return view('layout', compact('page'));
+			return view('home', compact('page'));
 		}
 
 		public function projects()

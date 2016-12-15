@@ -10,9 +10,10 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.imageloader.js"></script>
     <script src="js/jquery.touchSwipe.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+
 </head>
-<body data-page="{{ $page }}" class="en">
+<body class="en">
 <div class="linehand l-1-s">
     <nav class="menu">
         <ul>
@@ -44,12 +45,12 @@
 
         </div>
         <div class="enter-text">
-            <!-- <p data-lang="en">
-                Enter
-            </p>
-            <p data-lang="fa">
-                فا
-            </p> -->
+            {{--<p data-lang="en">--}}
+            {{--Enter--}}
+            {{--</p>--}}
+            {{--<p data-lang="fa">--}}
+            {{--فا--}}
+            {{--</p> --}}
             <p>
                 Enter
             </p>
@@ -85,7 +86,7 @@
                 </svg>
     </div>
 </div>
-<section class="inner-ajax">
+<section class="inner-ajax" id="pjax">
 
     @yield('content')
 
@@ -97,5 +98,6 @@
         <span class="mile"></span><span class="mile"></span><span class="mile"></span>
     </div>
 </div>
+@include('partials.scripts', [$page => $page])
 </body>
 </html>

@@ -42,10 +42,10 @@
             </div>
         </div>
         <div class="poject-img-container">
-            <div class="project-img-box">
-                <img src="{{ $project->photos->last()->image }}" class="project-img show"
-                     onload="$(this).addClass('Loaded')">
-            </div>
+            {{--<div class="project-img-box">--}}
+            {{--<img src="{{ $project->photos->last()->image }}" class="project-img show"--}}
+            {{--onload="$(this).addClass('Loaded')">--}}
+            {{--</div>--}}
             @foreach ($project->photos as $photo)
 
                 <div class="project-img-box">
@@ -73,5 +73,6 @@
             </div>
         </div>
     </div>
+
 
 @stop
