@@ -40,10 +40,10 @@
                                 <td><a href="/admin/project/{{ $project->id }}/edit"
                                        class="btn btn-primary btn-xs">Edit</a></td>
                                 <td>
-                                    <form action="/admin/project/{{ $project->id }}/delete" method="POST">
+                                    <form id="myform" action="/admin/project/{{ $project->id }}/delete" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <button class="btn btn-danger btn-xs">Delete</button>
+                                        <button id="delete" class="btn btn-danger btn-xs">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -56,8 +56,6 @@
             </div>
         </div>
     </div>
-
-
 
 
 

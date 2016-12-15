@@ -89,16 +89,19 @@
 
                     <hr>
                     <h2 class="text-center">Project Photos</h2><br>
-                    <form action="/admin/project/{{ $project->id }}/photos" class="dropzone" id="my-awesome-dropzone"
+                    <form action="/admin/project/{{ $project->id }}/photos" class="dropzone" id="myAwesomeDropzone"
                           method="POST">
                         {{ csrf_field() }}
                         <div class="dz-message" data-dz-message><span>Drop project's Photos here</span></div>
+                        {{--<div id="preview-template" style="display: none;"></div>--}}
 
                     </form>
                     <br>
                     <h3 class="text-center">Thumbnail</h3>
+                    <h4 class="text-danger">Note: First choose the main thumbnail then choose the plan (Don't
+                                            choose them multiple).</h4>
                     <form action="/admin/project/{{ $project->id }}/thumbnails" class="dropzone"
-                          id="my-awesome-dropzone"
+                          id="myAwesomeDropzone"
                           method="POST">
                         {{ csrf_field() }}
                         <div class="dz-message" data-dz-message><span>Drop project's Thumbnail here</span></div>
@@ -138,4 +141,5 @@
         });
 
     </script>
+
 @stop

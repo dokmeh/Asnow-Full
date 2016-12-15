@@ -23,7 +23,7 @@
 
 			$award->photo()->create(['image' => "/img/awards/photos/{$name}"]);
 
-			//			flash()->success('Done', 'Award has been added to Project');
+			flash()->success('Done', 'Award has been added to Project');
 
 			return redirect('admin/project/' . $project);
 		}
@@ -31,6 +31,8 @@
 		public function destroy(Award $award)
 		{
 			$award->delete();
+			flash()->error('Deleted', 'Award has been Deleted');
+
 
 			return back();
 		}
@@ -46,6 +48,9 @@
 
 				$award->photo()->create(['image' => "/img/awards/photos/{$name}"]);
 			}
+			flash()->success('Done', 'Award has been Updated.');
+
+			return back();
 		}
 
 		public function deletePhoto($id)
@@ -53,7 +58,7 @@
 			$photo = Photo::find($id);
 			$photo->destroy($id);
 
-			//			flash()->error('Deleted', 'The Photo Has been Deleted.');
+			flash()->error('Deleted', 'The Photo Has been Deleted.');
 
 			return back();
 		}

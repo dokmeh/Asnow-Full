@@ -23,7 +23,7 @@
 
                     <hr>
                     <h2 class="text-center">Event Photos</h2><br>
-                    <form action="/admin/events/{{ $event->id }}/photos" class="dropzone" id="my-awesome-dropzone"
+                    <form action="/admin/events/{{ $event->id }}/photos" class="dropzone" id="myAwesomeDropzone"
                           method="POST">
                         {{ csrf_field() }}
                         <div class="dz-message" data-dz-message><span>Drop event's Photos here</span></div>
@@ -32,7 +32,7 @@
                     <br>
                     <h3 class="text-center">Thumbnail</h3>
                     <form action="/admin/events/{{ $event->id }}/thumbnails" class="dropzone"
-                          id="my-awesome-dropzone"
+                          id="myAwesomeDropzone"
                           method="POST">
                         {{ csrf_field() }}
                         <div class="dz-message" data-dz-message><span>Drop event's Thumbnail here</span></div>

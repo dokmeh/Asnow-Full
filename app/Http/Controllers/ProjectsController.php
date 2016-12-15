@@ -11,6 +11,7 @@
 		public function store(Request $request)
 		{
 			$project = Project::create($request->all());
+			flash()->overlay('Success', 'Your Project Has Been Created Successfully, Now Upload the Photos');
 
 			return redirect("/admin/project/{$project->id}");
 		}
@@ -36,7 +37,7 @@
 
 			//			$project = Project::find($id);
 
-			$project->thumbnail()->create(['thumbnail_path' => "/img/project/photos/thumbnails/{$name}"]);
+			$project->thumbnails()->create(['thumbnail_path' => "/img/project/photos/thumbnails/{$name}"]);
 
 			return redirect('admin/project/' . $project->id);
 
@@ -44,7 +45,10 @@
 
 		public function destroy(Project $project)
 		{
+
 			$project->delete();
+
+			flash()->error('Deleted', 'The Project has been deleted.');
 
 			return back();
 		}
@@ -57,5 +61,13 @@
 			//			flash()->error('Deleted', 'The Photo Has been Deleted.');
 
 			return back();
+		}
+
+		public function update(Request $request, Project $project)
+		{
+			$project->update($request->all());
+			flash()->success('Done', 'The Project has been Updated.');
+
+			return redirect("/admin/project/{$project->id}");
 		}
 	}

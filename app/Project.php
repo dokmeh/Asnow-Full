@@ -28,9 +28,9 @@
 			return $this->morphMany(Photo::class, 'photoable');
 		}
 
-		public function thumbnail()
+		public function thumbnails()
 		{
-			return $this->morphOne(Thumbnail::class, 'thumbnailable');
+			return $this->morphMany(Thumbnail::class, 'thumbnailable');
 		}
 
 		public function category()

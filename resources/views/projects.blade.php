@@ -21,13 +21,14 @@
                 <a href="projects/{{ $project->id }}" class="projects-box" data-page="{{ $project->category->name }}"
                    data-title="{{ $project->title }}">
                     <div class="projects-box-square">
-                        <img src="{{ $project->thumbnail_path }}"
-                             data-src="{{ $project->thumbnail->thumbnail_path }}"
+                        <img src="{{ $project->thumbnails->first()->thumbnail_path }}"
+                             data-src="{{ $project->thumbnails->first()->thumbnail_path }}"
                              class="projects-img">
                         <div class="projects-title"><p>{{ $project->title }}<span>{{ $project->location }}
                                     - {{ $project->design_at }}</span></p>
-                            <img src="img/projects/project-1/thumb/thumb-s.jpg"
-                                 data-src="img/projects/project-1/thumb/thumb.jpg" class="projects-img-next">
+                            <img src="{{ $project->thumbnails->last()->thumbnail_path }}"
+                                 data-src="{{ $project->thumbnails->last()->thumbnail_path }}"
+                                 class="projects-img-next">
                         </div>
                     </div>
                 </a>

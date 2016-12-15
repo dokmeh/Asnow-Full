@@ -1,4 +1,5 @@
 @if (session()->has('flash_message'))
+    <!--suppress ALL -->
     <script>
         swal({
             title            : "{{ session('flash_message.title') }}",
@@ -34,21 +35,36 @@
                 confirmButtonText : "Yes, delete it!",
                 cancelButtonText  : "No, cancel please!",
                 closeOnConfirm    : false,
-                closeOnCancel     : false
+
             },
 
-            function (isConfirm) {
-                if (isConfirm) {
-                    swal("Deleted!", "Your file has been deleted.", "success");
-                }
-
-                else {
-                    swal("Cancelled", "Your file is safe", "error");
-                }
+            function () {
+                $("#myform").submit();
             });
+
 
     </script>
 
+
+    <script>
+        $('#delete').on('click', function () {
+            swal({
+                    title             : "Are you sure?",
+                    text              : "You will not be able to recover this.",
+                    type              : "warning",
+                    showCancelButton  : true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText : "Yes, delete it!",
+                    closeOnConfirm    : false
+                },
+                function () {
+                    $("#myform").submit();
+                });
+        })
+    </script>
+
 @endif
+
+
 
 

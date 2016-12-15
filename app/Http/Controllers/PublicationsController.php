@@ -21,7 +21,7 @@
 
 			$publication->files()->create(['path' => "/files/publications/files/{$name}"]);
 
-			//			flash()->success('Done', 'Award has been added to Project');
+			flash()->success('Done', 'Publication has been added to Project');
 
 			return redirect('admin/project/' . $project);
 		}
@@ -37,6 +37,8 @@
 
 				$publication->files()->create(['path' => "/files/publications/files/{$name}"]);
 			}
+			flash()->success('Done', 'Publication has been Updated.');
+
 
 			return back();
 		}
@@ -44,6 +46,8 @@
 		public function destroy(Publication $publication)
 		{
 			$publication->delete();
+			flash()->error('Deleted', 'Publication has been deleted.');
+
 
 			return back();
 		}

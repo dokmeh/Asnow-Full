@@ -10,6 +10,7 @@
 		public function store(Request $request)
 		{
 			$event = Event::create($request->all());
+			flash()->overlay('Success', 'Your Event Has Been Created Successfully, Now Upload the Photos');
 
 			return redirect("/admin/events/{$event->id}");
 		}
@@ -47,6 +48,7 @@
 		public function destroy(Event $event)
 		{
 			$event->delete();
+			flash()->error('Deleted', 'The Event has been Deleted.');
 
 			return back();
 		}
@@ -54,6 +56,7 @@
 		public function update(Request $request, Event $event)
 		{
 			$event->update($request->all());
+			flash()->success('Success', 'The Event has been Updated.');
 
 			return back();
 		}

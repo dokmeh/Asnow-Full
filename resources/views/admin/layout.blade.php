@@ -282,6 +282,16 @@
     </div>
 </div>
 @include('partials.flash')
+<script>
 
+
+    Dropzone.options.myAwesomeDropzone = {
+        paramName    : "file",
+        acceptedFiles: '.jpg, .jpeg, .png, .JPG, .JPEG, .bmp, .PNG',
+        clickable    : true,
+//        addRemoveLinks: true,
+    }
+    ;
+</script>
 </body>
 </html>
