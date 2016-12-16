@@ -15,6 +15,7 @@
 			Schema::create('photos', function (Blueprint $table) {
 				$table->increments('id');
 				$table->string('image');
+				$table->string('name');
 				$table->integer('photoable_id');
 				$table->string('photoable_type');
 				$table->timestamps();

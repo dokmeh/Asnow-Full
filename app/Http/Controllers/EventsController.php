@@ -64,9 +64,11 @@
 		public function deletePhotos($id)
 		{
 			$photo = Photo::find($id);
+			$path  = $photo->image;
+			unlink(public_path($path));
 			$photo->destroy($id);
 
-			//			flash()->error('Deleted', 'The Photo Has been Deleted.');
+			flash()->error('Deleted', 'The Photo Has been Deleted.');
 
 			return back();
 		}

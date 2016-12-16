@@ -55,6 +55,8 @@
 		public function deleteFiles($id)
 		{
 			$file = File::find($id);
+			$path = $file->path;
+			unlink(public_path($path));
 			$file->destroy($id);
 
 			//			flash()->error('Deleted', 'The Photo Has been Deleted.');

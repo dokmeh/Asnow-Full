@@ -5,6 +5,7 @@
 	use App\Photo;
 	use App\Project;
 	use Illuminate\Http\Request;
+	use Illuminate\Support\Facades\Storage;
 
 	class ProjectsController extends Controller {
 
@@ -24,7 +25,10 @@
 
 			//			$project = Project::find($id);
 
-			$project->photos()->create(['image' => "/img/project/photos/{$name}"]);
+			$project->photos()->create([
+				                           'image' => "/img/project/photos/{$name}",
+				                           'name'  => $name,
+			                           ]);
 
 			return redirect('admin/project/' . $project->id);
 		}
@@ -56,9 +60,12 @@
 		public function deletePhotos($id)
 		{
 			$photo = Photo::find($id);
+			$path  = $photo->image;
+			unlink(public_path($path));
 			$photo->destroy($id);
 
-			//			flash()->error('Deleted', 'The Photo Has been Deleted.');
+
+			flash()->error('Deleted', 'The Photo Has been Deleted.');
 
 			return back();
 		}
