@@ -7,22 +7,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="stylesheet" type="text/css" href="/css/vendor.css">
     <link rel="stylesheet" type="text/css" href="/css/flat-admin.css">
-
     <link rel="stylesheet" type="text/css" href="/css/default.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/admin/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin/dropzone.css">
+
+    <script src="/js/admin/jquery-new.js"></script>
+    <script src="/js/admin/jquery-ui.js"></script>
+    <script src="/js/admin/tether.js"></script>
+    <script src="/js/admin/bootstrap-4.js"></script>
+    <script src="/js/admin/bootstrap-select.js"></script>
+    <script src="/js/admin/bootstrap-switch.js"></script>
+    <script src="/js/admin/bootstrap-growl.js"></script>
+    <script src="/js/admin/dropzone.js"></script>
+    <script src="/js/admin/sweetalert.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.0/tinymce.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
     <script>tinymce.PluginManager.add('placeholder', function (editor) {
             editor.on('init', function () {
                 var label = new Label;
