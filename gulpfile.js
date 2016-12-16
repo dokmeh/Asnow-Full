@@ -15,5 +15,20 @@ require('laravel-elixir-vue-2');
 
 elixir((mix) => {
     mix.sass('app.scss')
-       .webpack('app.js');
+        .styles([
+            'style.css',
+            'reset.min.css',
+
+        ])
+
+        .scripts([
+            'jquery-new.js',
+            'jquery.imageloader.js',
+            'jquery.touchSwipe.min.js',
+            'perfect-scrollbar.min.js',
+
+        ])
+        .version('css/all.css', 'js/all.js')
 });
+
+

@@ -1,9 +1,29 @@
+.grid-actions {
+  text-align : right;
+  float      : right;
+  }
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+.grid-actions .btn {
+  margin-left : 16px;
+  }
 
-// Variables
-@import "variables";
+.sortable-handle {
+  cursor : move;
+  width  : 40px;
+  color  : #ddd;
+  }
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+.id-column {
+  width : 40px;
+  }
+
+/** notifications style */
+.alert {
+  font-size : 14px;
+  }
+
+.bootstrap-growl .close {
+  margin-left : 10px;
+  }
+
+/** forms */

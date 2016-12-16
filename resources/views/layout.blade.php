@@ -5,12 +5,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>Aznow</title>
     <base href="{{ url('/') }}">
-    <link rel="stylesheet" type="text/css" href="css/reset.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.imageloader.js"></script>
-    <script src="js/jquery.touchSwipe.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
+    <script src="{{ elixir('js/all.js') }}"></script>
+    {{--<link rel="stylesheet" type="text/css" href="css/reset.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="css/style.css">--}}
+    {{--<script src="js/jquery.min.js"></script>--}}
+    {{--<script src="js/jquery.imageloader.js"></script>--}}
+    {{--<script src="js/jquery.touchSwipe.min.js"></script>--}}
 
 </head>
 <body class="en">
@@ -98,6 +99,9 @@
         <span class="mile"></span><span class="mile"></span><span class="mile"></span>
     </div>
 </div>
+{{--<script>--}}
+{{--$(document).pjax('a', '#pjax');--}}
+{{--</script>--}}
 @include('partials.scripts', [$page => $page])
 </body>
 </html>

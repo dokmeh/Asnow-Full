@@ -18,6 +18,14 @@
             </div>
         </div>
     </div>
-
+    <script>
+        $(document).ready(function () {
+            $('.event-img').imageloader({
+                callback: function (ele) {
+                    $(ele).addClass('loaded');
+                }
+            });
+        })
+    </script>
 
 @stop

@@ -28,6 +28,7 @@
 				\Illuminate\Session\Middleware\StartSession::class,
 				\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 				\App\Http\Middleware\VerifyCsrfToken::class,
+				\App\Http\Middleware\PjaxMiddleware::class,
 				\Illuminate\Routing\Middleware\SubstituteBindings::class,
 			],
 
