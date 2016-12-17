@@ -3,7 +3,7 @@
     <div class="about-container">
         <div class="about-row">
             <div class="about-text-container">
-                <h2 class="about-h">Who we are</h2>
+                <h2 class="about-h" data-en="Who we are" data-fa="ما چه کسانی هستیم؟"></h2>
                 <p class="about-text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aspernatur consectetur eum magnam nulla
                     rem, sapiente tenetur? A asperiores, commodi eligendi exercitationem incidunt iusto, libero neque

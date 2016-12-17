@@ -410,6 +410,16 @@ body.fa p:after,body.fa a:after {
     font-family: 'Vazir', tahoma;
 }
 
+
+section.en p:before,body.en a:before {
+    content: attr(data-en);
+    }
+
+section.fa p:after,body.fa a:after {
+    content: attr(data-fa);
+    font-family: 'Vazir', tahoma;
+    }
+
 .linehand.l-2-s ul {
     width: 100%;
     visibility: visible;
