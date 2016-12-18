@@ -18,10 +18,20 @@
                             <div class="col-md-6">
                                 <input type="text" name="title" class="form-control" value="{{ $project->title }}"
                                        placeholder="{{ $project->title }}">
+
+                                <input type="text" name="title_fa" class="form-control" value="{{ $project->title_fa }}"
+                                       placeholder="{{ $project->title_fa }}">
                                 <input type="text" name="client" value="{{ $project->client }}" class="form-control"
                                        placeholder="{{ $project->client }}">
+
+                                <input type="text" name="client_fa" value="{{ $project->client_fa }}"
+                                       class="form-control"
+                                       placeholder="{{ $project->client_fa }}">
                                 <input type="text" name="location" value="{{ $project->location }}" class="form-control"
                                        placeholder="{{ $project->location }}">
+                                <input type="text" name="location_fa" value="{{ $project->location_fa }}"
+                                       class="form-control"
+                                       placeholder="{{ $project->location_fa}}">
                                 <input type="number" value="{{ $project->site_area }}" name="site_area"
                                        class="form-control"
                                        placeholder="Site Area Meter...">
@@ -50,6 +60,10 @@
                                 <textarea id="description" name="description" rows="3" class="form-control"
                                           value="{{ $project->description }}"
                                           placeholder="{{ $project->description }}">{{ $project->description }}</textarea>
+
+                                <textarea id="description_fa" name="description_fa" rows="3" class="form-control"
+                                          value="{{ $project->description_fa }}"
+                                          placeholder="{{ $project->description_fa }}">{{ $project->description_fa }}</textarea>
                                 <Br>
                                 <input name="design_at" value="{{ $project->design_at }}" type="number" min="1900"
                                        max="2099" step="1"
@@ -117,6 +131,9 @@
                                 {{ csrf_field() }}
                                 <input type="text" name="name" value="{{ $award->name }}" class="form-control"
                                        placeholder="{{ $award->name }}">
+
+                                <input type="text" name="name_fa" value="{{ $award->name_fa }}" class="form-control"
+                                       placeholder="{{ $award->name_fa }}">
                                 <input name="date" value="{{ $award->date }}" type="number" min="1900"
                                        max="2099"
                                        step="1"
@@ -126,6 +143,11 @@
                                           name="description"
                                           rows="1" class="form-control"
                                           placeholder="{{ $award->description }}">{{ $award->description }}</textarea><br>
+
+                                <textarea id="award-description_fa" value="{{ $award->description_fa }}"
+                                          name="description_fa"
+                                          rows="1" class="form-control"
+                                          placeholder="{{ $award->description_fa }}">{{ $award->description_fa }}</textarea><br>
                                 <button type="submit" class="btn btn-primary">Save Award</button>
                                 <a href="/admin/project/{{ $project->id }}/edit"
                                    class="btn btn-default">Cancel</a>
@@ -134,66 +156,75 @@
 
                             </form>
                             <script>
-                                tinymce.get('award-description').setContent('{{ $award->description }}');
+                                tinymce.get('award-description_fa').setContent('{{ $award->description_fa }}');
 
                             </script>
                         </div>
 
 
+                    @endforeach
+
+
+
+                    @if (count($project->publications) > 0)
+                        <hr>
+                        <h2>Publications:</h2>
+                    @endif
+
+                    @foreach ($project->publications as $publication)
+
+                        <h3>{{ $publication->name }}</h3>
+                        <p>{!! $publication->description !!}</p>
+                        @foreach ($publication->files as $file)
+                            <a href="{{ $file->path }}">Download the publication file.</a><a
+                                    href="/admin/project/publications/file/{{ $file->id }}/deletebtn"><i
+                                        class="fa fa-times fa-3x"
+                                        aria-hidden="true"></i></a>
+                        @endforeach
+                        <button id="show-publication" class="btn btn-success">Edit This Publications</button>
+                        <div id="publication-edit">
+                            <button id="hide-publication" class="btn btn-danger">Close this form</button>
+                            <form action="/admin/project/publications/{{ $publication->id }}/edit" method="POST"
+                                  enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="text" name="name" value="{{ $publication->name }}" class="form-control"
+                                       placeholder="{{ $publication->name }}">
+
+                                <input type="text" name="name_fa" value="{{ $publication->name_fa }}"
+                                       class="form-control"
+                                       placeholder="{{ $publication->name_fa }}">
+
+                                <strong>Upload a file for this publication</strong><input type="file" name="file">
+                                <textarea id="publication-description" value="{{ $publication->description }}"
+                                          name="description"
+                                          rows="1" class="form-control"
+                                          placeholder="{{ $publication->description }}">{{ $publication->description }}</textarea><br>
+
+                                <textarea id="publication-description_fa" value="{{ $publication->description_fa }}"
+                                          name="description_fa"
+                                          rows="1" class="form-control"
+                                          placeholder="{{ $publication->description_fa }}">{{ $publication->description_fa }}</textarea><br>
+                                <button type="submit" class="btn btn-primary">Save Publication</button>
+                                <a href="/admin/project/{{ $project->id }}/edit"
+                                   class="btn btn-default">Cancel</a>
+                                <a href="/admin/project/publications/{{ $publication->id }}/deletebtn"
+                                   class="btn btn-danger">Delete
+                                                          Publication</a>
+
+                            </form>
+                            <script>
+                                tinymce.get('publication-description_fa').setContent('{{ $publication->description_fa }}');
+
+                            </script>
+
+                        </div>
+                </div>
+
+
                 @endforeach
 
-
-
-                @if (count($project->publications) > 0)
-                    <hr>
-                    <h2>Publications:</h2>
-                @endif
-
-                @foreach ($project->publications as $publication)
-
-                    <h3>{{ $publication->name }}</h3>
-                    <p>{!! $publication->description !!}</p>
-                    @foreach ($publication->files as $file)
-                        <a href="{{ $file->path }}">Download the publication file.</a><a
-                                href="/admin/project/publications/file/{{ $file->id }}/deletebtn"><i
-                                    class="fa fa-times fa-3x"
-                                    aria-hidden="true"></i></a>
-                    @endforeach
-                    <button id="show-publication" class="btn btn-success">Edit This Publications</button>
-                    <div id="publication-edit">
-                        <button id="hide-publication" class="btn btn-danger">Close this form</button>
-                        <form action="/admin/project/publications/{{ $publication->id }}/edit" method="POST"
-                              enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type="text" name="name" value="{{ $publication->name }}" class="form-control"
-                                   placeholder="{{ $publication->name }}">
-
-                            <strong>Upload a file for this publication</strong><input type="file" name="file">
-                            <textarea id="publication-description" value="{{ $publication->description }}"
-                                      name="description"
-                                      rows="1" class="form-control"
-                                      placeholder="{{ $publication->description }}">{{ $publication->description }}</textarea><br>
-                            <button type="submit" class="btn btn-primary">Save Publication</button>
-                            <a href="/admin/project/{{ $project->id }}/edit"
-                               class="btn btn-default">Cancel</a>
-                            <a href="/admin/project/publications/{{ $publication->id }}/deletebtn"
-                               class="btn btn-danger">Delete
-                                                      Publication</a>
-
-                        </form>
-                        <script>
-                            tinymce.get('publication-description').setContent('{{ $publication->description }}');
-
-                        </script>
-
-                    </div>
             </div>
-
-
-            @endforeach
-
         </div>
-    </div>
     </div>
     </div>
     <script>
@@ -231,5 +262,6 @@
     </script>
     <script>
         tinymce.get('description').setContent('{{ $project->description }}');
+        tinymce.get('description_fa').setContent('{{ $project->description_fa }}');
     </script>
 @stop

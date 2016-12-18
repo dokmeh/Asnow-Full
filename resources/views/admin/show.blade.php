@@ -55,10 +55,14 @@
 
                                 {{ csrf_field() }}
                                 <input type="text" name="name" class="form-control" placeholder="Award's Name">
+                                <input type="text" name="name_fa" class="form-control" placeholder="نام جایزه">
                                 <input name="date" type="number" min="1900" max="2099" step="1"
                                        placeholder="Award's Achieved Year"/><br>
                                 <strong>Upload an icon for this award</strong><input type="file" name="file">
                                 <textarea name="description" rows="1" class="form-control"
+                                          placeholder="Award's Description"></textarea><br>
+                                <p>توضیحات:</p>
+                                <textarea name="description_fa" rows="1" class="form-control"
                                           placeholder="Award's Description"></textarea><br>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>
@@ -77,9 +81,13 @@
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="text" name="name" class="form-control" placeholder="Publication's Name">
+                                <input type="text" name="name_fa" class="form-control" placeholder="نام مجله">
 
                                 <strong>Upload a file for this publication</strong><input type="file" name="file">
                                 <textarea name="description" rows="1" class="form-control"
+                                          placeholder="Publication's Description"></textarea><br>
+                                <p>توضیحات:</p>
+                                <textarea name="description_fa" rows="1" class="form-control"
                                           placeholder="Publication's Description"></textarea><br>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>

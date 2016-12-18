@@ -10,9 +10,11 @@
 		public function store(Request $request, $project)
 		{
 			$publication = Publication::create([
-				                                   'name'        => $request->input('name'),
-				                                   'description' => $request->input('description'),
-				                                   'project_id'  => $project,
+				                                   'name'           => $request->input('name'),
+				                                   'name_fa'        => $request->input('name_fa'),
+				                                   'description'    => $request->input('description'),
+				                                   'description_fa' => $request->input('description_fa'),
+				                                   'project_id'     => $project,
 			                                   ]);
 
 			$file = $request->file('file');

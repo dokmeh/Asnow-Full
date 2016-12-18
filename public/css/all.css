@@ -403,11 +403,11 @@ li.li-clicked.li-open {
 		}
 	}
 
-body.en *:before, body.en *:before {
+body.en p:before, body.en a:before {
 	content : attr(data-en);
 	}
 
-body.fa *:after, body.fa *:after {
+body.fa p:after, body.fa a:after {
 	content     : attr(data-fa);
 	font-family : 'Vazir', tahoma;
 	}

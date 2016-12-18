@@ -7,8 +7,10 @@
 	class Event extends Model {
 		protected $fillable = [
 			'name',
+			'name_fa',
 			'date',
 			'description',
+			'description_fa',
 		];
 
 		public function thumbnail()

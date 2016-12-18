@@ -11,17 +11,22 @@
 		public function store(Request $request, $project)
 		{
 			$award = Award::create([
-				                       'name'        => $request->input('name'),
-				                       'description' => $request->input('description'),
-				                       'date'        => $request->input('date'),
-				                       'project_id'  => $project,
+				                       'name'           => $request->input('name'),
+				                       'name_fa'        => $request->input('name_fa'),
+				                       'description'    => $request->input('description'),
+				                       'description_fa' => $request->input('description_fa'),
+				                       'date'           => $request->input('date'),
+				                       'project_id'     => $project,
 			                       ]);
 
 			$file = $request->file('file');
 			$name = time() . $file->getClientOriginalName();
 			$file->move('img/awards/photos', $name);
 
-			$award->photo()->create(['image' => "/img/awards/photos/{$name}"]);
+			$award->photo()->create([
+				                        'image' => "/img/awards/photos/{$name}",
+				                        'name'  => $name,
+			                        ]);
 
 			flash()->success('Done', 'Award has been added to Project');
 

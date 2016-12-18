@@ -4,14 +4,25 @@
 	Route::get('/', function () {
 		return redirect('/home');
 	});
+	Route::get('/fa', function () {
+		return redirect('/fa/home');
+	});
 	Route::get('/projects', 'PagesController@projects');
+	Route::get('/fa/projects', 'PagesController@projects_fa');
 	Route::get('/events', 'PagesController@events');
+	Route::get('/fa/events', 'PagesController@events_fa');
 	Route::get('/projects/{project}', 'PagesController@project');
+	Route::get('/fa/projects/{project}', 'PagesController@project_fa');
 	Route::get('/events/{event}', 'PagesController@event');
-	Route::get('/about', 'PagesController@about');
+	Route::get('/fa/events/{event}', 'PagesController@event_fa');
+	Route::get('/fa/about', 'PagesController@about');
+	Route::get('/fa/about', 'PagesController@about_fa');
 	Route::get('/contact', 'PagesController@contact');
+	Route::get('/fa/contact', 'PagesController@contact_fa');
 	Route::get('/publications', 'PagesController@publications');
+	Route::get('/fa/publications', 'PagesController@publications_fa');
 	Route::get('/publications/{publication}', 'PagesController@publication');
+	Route::get('/fa/publications/{publication}', 'PagesController@publication_fa');
 
 
 	Route::group(['prefix' => 'admin'], function () {
@@ -89,6 +100,6 @@
 
 
 	Route::get('/home', 'PagesController@home');
-	Route::get('/fa/home', 'PagesController@home')->name('fa');
+	Route::get('/fa/home', 'PagesController@home_fa');
 
 

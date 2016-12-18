@@ -27,7 +27,10 @@
 			$file->move('img/events/photos', $name);
 
 
-			$event->photos()->create(['image' => "/img/events/photos/{$name}"]);
+			$event->photos()->create([
+				                         'image' => "/img/events/photos/{$name}",
+				                         'name'  => $name,
+			                         ]);
 
 			return redirect('admin/events/' . $event->id);
 		}

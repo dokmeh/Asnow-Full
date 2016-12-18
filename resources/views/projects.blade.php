@@ -3,14 +3,13 @@
 
     <div class="projects-container">
         <div class="projects-cat-container">
-            <h2 class="projects-cat-h2" data-en="Projects" data-fa="پروژه ها"></h2>
+            <h2 class="projects-cat-h2">Projects</h2>
             <ul>
-                <li data-prcat="all" class="projects-cat-li clicked" data-en="All" data-fa="همه"></li>
+                <li data-prcat="all" class="projects-cat-li clicked" data-en="All" data-fa="همه">All</li>
 
                 @foreach ($categories as $category)
 
-                    <li data-prcat="{{$category->name}}" class="projects-cat-li" data-en="{{$category->name}}"
-                        data-fa="{{$category->name}}"></li>
+                    <li data-prcat="{{$category->name}}" class="projects-cat-li">{{ $category->name }}</li>
 
                 @endforeach
 

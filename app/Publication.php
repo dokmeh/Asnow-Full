@@ -7,7 +7,9 @@
 	class Publication extends Model {
 		protected $fillable = [
 			'name',
+			'name_fa',
 			'description',
+			'description_fa',
 			'project_id',
 		];
 

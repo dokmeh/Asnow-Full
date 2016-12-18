@@ -16,9 +16,17 @@
                             <input type="text" value="{{ $event->name }}" name="name" class="form-control"
                                    placeholder="{{ $event->name }}">
 
+                            <input type="text" value="{{ $event->name_fa }}" name="name_fa" class="form-control"
+                                   placeholder="{{ $event->name_fa }}">
+
                             <textarea value="{{ $event->description }}" name="description" rows="3"
                                       class="form-control"
                                       placeholder="{{ $event->description }}">{{ $event->description }}</textarea>
+                            <Br>
+
+                            <textarea value="{{ $event->description_fa }}" name="description_fa" rows="3"
+                                      class="form-control"
+                                      placeholder="{{ $event->description_fa }}">{{ $event->description_fa }}</textarea>
                             <Br>
                             <input name="date" type="date" value="{{ $event->date }}" step="1"
                                    placeholder="{{ $event->date }}"/>
@@ -49,5 +57,6 @@
     </div>
     <script>
         tinymce.get('description').setContent('{{ $event->description }}');
+        tinymce.get('description_fa').setContent('{{ $event->description_fa }}');
     </script>
 @stop

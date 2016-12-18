@@ -8,7 +8,9 @@
 
 		protected $fillable = [
 			'name',
+			'name_fa',
 			'description',
+			'description_fa',
 			'date',
 			'project_id',
 		];

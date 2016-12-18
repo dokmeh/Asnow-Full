@@ -14,6 +14,9 @@
                                 {{ csrf_field() }}
                                 <input type="text" name="name" value="{{ $category->name }}"
                                        placeholder="{{ $category->name }}">
+
+                                <input type="text" name="nam_fae" value="{{ $category->name_fa }}"
+                                       placeholder="{{ $category->name_fa }}">
                                 <button type="submit" class="btn btn-primary btn-xs">Update</button>
                                 <a href="/admin/category/{{ $category->id }}/deletebtn" class="btn btn-danger btn-xs">Delete</a>
 
@@ -25,6 +28,7 @@
                             {{ csrf_field() }}
                             <div class="col-md-6">
                                 <input type="text" name="name" class="form-control" placeholder="Category Name">
+                                <input type="text" name="name_fa" class="form-control" placeholder="نام موضوع">
 
                             </div>
 

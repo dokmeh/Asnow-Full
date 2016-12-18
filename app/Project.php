@@ -11,9 +11,13 @@
 
 		protected $fillable = [
 			'title',
+			'title_fa',
 			'location',
+			'location_fa',
 			'client',
+			'client_fa',
 			'description',
+			'description_fa',
 			'design_at',
 			'completed_at',
 			'site_area',

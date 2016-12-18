@@ -15,11 +15,15 @@
 			Schema::create('projects', function (Blueprint $table) {
 				$table->increments('id');
 				$table->string('title');
+				$table->string('title_fa');
 				$table->string('location');
+				$table->string('location_fa');
 				$table->string('client');
+				$table->string('client_fa');
 				$table->text('description');
-				$table->integer('design_at');
-				$table->integer('completed_at');
+				$table->text('description_fa');
+				$table->string('design_at');
+				$table->string('completed_at');
 				$table->integer('site_area');
 				$table->integer('floor_area');
 				$table->integer('sort');

@@ -34,9 +34,8 @@
             <a href="/"><img src="img/logo.svg" alt=""/></a>
         </div>
         <div class="lng-bar">
-            <a id="fa">فا</a>
-            <a id="en">En</a>
-            {{--<button id="fa">فا</button>--}}
+            <a href="{{ 'fa/' . Request::path() }}">فا</a>
+
         </div>
     </nav>
 </div>
@@ -101,34 +100,7 @@
         <span class="mile"></span><span class="mile"></span><span class="mile"></span>
     </div>
 </div>
-{{--<script>--}}
-{{--$(document).pjax('a', '#pjax');--}}
-{{--</script>--}}
 
-<script>
-    {{--var path = "{{ Request::path() }}"--}}
-    {{--if (path == "fa/home") {--}}
-        {{--$('body').removeClass('en');--}}
-        {{--$('body').addClass('fa');--}}
-    {{--}--}}
-    $(document).ready(function () {
-        $('#en').hide();
-        $('#fa').click(function () {
-            $('body').removeClass('en');
-            $('body').addClass('fa');
-            $('#fa').hide();
-            $('#en').show()
-        })
-
-        $('#en').click(function () {
-            $('body').removeClass('fa');
-            $('body').addClass('en');
-            $('#en').hide();
-            $('#fa').show()
-        })
-    })
-
-</script>
 @include('partials.scripts', [$page => $page])
 </body>
 </html>

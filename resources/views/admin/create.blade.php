@@ -16,8 +16,11 @@
                                 {{--<input type="hidden" name="sort" value="{{ $sort }}">--}}
                                 <div class="col-md-6">
                                     <input type="text" name="title" class="form-control" placeholder="Title...">
+                                    <input type="text" name="title_fa" class="form-control" placeholder="نام پروژه">
                                     <input type="text" name="client" class="form-control" placeholder="Client...">
+                                    <input type="text" name="client_fa" class="form-control" placeholder="کارفرما">
                                     <input type="text" name="location" class="form-control" placeholder="Location...">
+                                    <input type="text" name="location_fa" class="form-control" placeholder="موقعیت">
                                     <input type="number" name="site_area" class="form-control"
                                            placeholder="Site Area Meter...">
                                     <input type="number" name="floor_area" class="form-control"
@@ -43,6 +46,9 @@
 
                                 <textarea name="description" rows="3" class="form-control"
                                           placeholder="Description..."></textarea>
+                                    <p>توضیحات:</p>
+                                    <textarea name="description_fa" rows="3" class="form-control"
+                                              placeholder="Description..."></textarea>
                                     <Br>
                                     <input name="design_at" type="number" min="1900" max="2099" step="1"
                                            placeholder="Designed At"/>

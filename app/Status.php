@@ -5,7 +5,7 @@
 	use Illuminate\Database\Eloquent\Model;
 
 	class Status extends Model {
-		protected $fillable = ['name'];
+		protected $fillable = ['name', 'name_fa'];
 
 		public function projects()
 		{

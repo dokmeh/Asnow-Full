@@ -15,8 +15,10 @@
 			Schema::create('events', function (Blueprint $table) {
 				$table->increments('id');
 				$table->string('name');
+				$table->string('name_fa');
 				$table->date('date');
 				$table->text('description');
+				$table->text('description_fa');
 				$table->timestamps();
 			});
 		}
