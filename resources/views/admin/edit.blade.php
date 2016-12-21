@@ -100,13 +100,26 @@
                     @if (count($project->photos) > 0)
 
                         <hr>
-                        @foreach ($project->photos as $photo)
-                            <img width="200px" src="{{ $photo->image }}" alt=""><a
-                                    href="/admin/project/photo/{{ $photo->id }}/deletebtn"><i
-                                        class="fa fa-times fa-3x"
-                                        aria-hidden="true"></i></a>
-                        @endforeach
+
+
+                        <table class="table table-striped table-hover">
+                            <tbody class="sortable" data-entityname="photos">
+                            @foreach ($project->photos()->sorted()->get() as $photo)
+                                <tr data-itemId="{{ $photo->id }}">
+                                    <td class="sortable-handle"><span class="glyphicon glyphicon-sort"></span></td>
+                                    <td class="id-column">{{ $photo->id }}</td>
+                                    <td><img width="100px" height="100px" src="{{ $photo->image }}" alt=""></td>
+                                    <td>
+                                        <a href="/admin/project/photo/{{ $photo->id }}/deletebtn"
+                                           class="btn btn-danger btn-xs">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     @endif
+
+
 
                     @if (count($project->awards) > 0)
                         <hr>
@@ -118,48 +131,10 @@
                         <h3>{{ $award->name }}</h3>
                         <p>{!! $award->description !!}</p>
                         @if (count($award->photo) > 0)
-                            <img width="100px" src="{{ $award->photo->image }}" alt=""><a
-                                    href="/admin/project/award/photo/{{ $award->photo->id }}/deletebtn"><i
-                                        class="fa fa-times fa-3x"
-                                        aria-hidden="true"></i></a>
+                            <img width="100px" src="{{ $award->photo->image }}" alt="">
                         @endif
-                        <button id="show" class="btn btn-success">Edit This Award</button>
-                        <div id="award-edit">
-                            <button id="hide" class="btn btn-danger">Close this form</button>
-                            <form action="/admin/project/awards/{{ $award->id }}/edit" method="POST"
-                                  enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="text" name="name" value="{{ $award->name }}" class="form-control"
-                                       placeholder="{{ $award->name }}">
+                        <a href="/admin/awards/{{ $award->id }}/edit" class="btn btn-success">Edit This Award</a>
 
-                                <input type="text" name="name_fa" value="{{ $award->name_fa }}" class="form-control"
-                                       placeholder="{{ $award->name_fa }}">
-                                <input name="date" value="{{ $award->date }}" type="number" min="1900"
-                                       max="2099"
-                                       step="1"
-                                       placeholder="{{ $award->date }}"/><br>
-                                <strong>Upload an icon for this award</strong><input type="file" name="file">
-                                <textarea id="award-description" value="{{ $award->description }}"
-                                          name="description"
-                                          rows="1" class="form-control"
-                                          placeholder="{{ $award->description }}">{{ $award->description }}</textarea><br>
-
-                                <textarea id="award-description_fa" value="{{ $award->description_fa }}"
-                                          name="description_fa"
-                                          rows="1" class="form-control"
-                                          placeholder="{{ $award->description_fa }}">{{ $award->description_fa }}</textarea><br>
-                                <button type="submit" class="btn btn-primary">Save Award</button>
-                                <a href="/admin/project/{{ $project->id }}/edit"
-                                   class="btn btn-default">Cancel</a>
-                                <a href="/admin/project/award/{{ $award->id }}/deletebtn" class="btn btn-danger">Delete
-                                                                                                                 Award</a>
-
-                            </form>
-                            <script>
-                                tinymce.get('award-description_fa').setContent('{{ $award->description_fa }}');
-
-                            </script>
-                        </div>
 
 
                     @endforeach
@@ -226,23 +201,116 @@
             </div>
         </div>
     </div>
-    </div>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var App = {};
+
+        App.notify         = {
+            message: function (message, type) {
+                if ($.isArray(message)) {
+                    $.each(message, function (i, item) {
+                        App.notify.message(item, type);
+                    });
+                } else {
+                    $.bootstrapGrowl(message, {
+                        type  : type,
+                        delay : 4000,
+                        offset: {from: 'buttom', amount: 50}, // 'top', or 'bottom'
+                        align : 'right'
+                    });
+                }
+            },
+
+            danger         : function (message) {
+                App.notify.message(message, 'danger');
+            },
+            success        : function (message) {
+                App.notify.message(message, 'success');
+            },
+            info           : function (message) {
+                App.notify.message(message, 'info');
+            },
+            warning        : function (message) {
+                App.notify.message(message, 'warning');
+            },
+            validationError: function (errors) {
+                $.each(errors, function (i, fieldErrors) {
+                    App.notify.danger(fieldErrors);
+                });
+            }
+        };
+        var changePosition = function (requestData) {
+            $.ajax({
+                'url'    : '/sort',
+                'type'   : 'POST',
+                'data'   : requestData,
+                'success': function (data) {
+                    if (data.success) {
+                        console.log('Saved!');
+                        App.notify.success('Saved!');
+                    } else {
+                        console.error(data.errors);
+                        App.notify.validationError(data.errors);
+                    }
+                },
+                'error'  : function () {
+                    console.error('Something wrong!');
+                    App.notify.danger('Something wrong!');
+                }
+            });
+        };
+
+        $(document).ready(function () {
+            var $sortableTable = $('.sortable');
+            if ($sortableTable.length > 0) {
+                $sortableTable.sortable({
+                    handle: '.sortable-handle',
+                    axis  : 'y',
+                    update: function (a, b) {
+
+                        var entityName = $(this).data('entityname');
+                        var $sorted    = b.item;
+
+                        var $previous = $sorted.prev();
+                        var $next     = $sorted.next();
+
+                        if ($previous.length > 0) {
+                            changePosition({
+                                parentId        : $sorted.data('parentid'),
+                                type            : 'moveAfter',
+                                entityName      : entityName,
+                                id              : $sorted.data('itemid'),
+                                positionEntityId: $previous.data('itemid')
+                            });
+                        } else if ($next.length > 0) {
+                            changePosition({
+                                parentId        : $sorted.data('parentid'),
+                                type            : 'moveBefore',
+                                entityName      : entityName,
+                                id              : $sorted.data('itemid'),
+                                positionEntityId: $next.data('itemid')
+                            });
+                        } else {
+                            console.error('Something wrong!');
+                            App.notify.danger('Something wrong!');
+                        }
+                    },
+                    cursor: "move"
+                });
+            }
+            $('.sortable td').each(function () {
+                $(this).css('width', $(this).width() + 'px');
+            });
+        });
+
+    </script>
     <script>
         $(document).ready(function () {
-            $("#award-edit").hide();
-            $("#publication-edit").hide();
-
-            $("#show").click(function () {
-                $("#award-edit").show();
-                $("#show").hide();
-            });
-
-
-            $("#hide").click(function () {
-                $("#award-edit").hide();
-                $("#show").show();
-
-            });
 
 
             $("#show-publication").click(function () {

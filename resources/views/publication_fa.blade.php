@@ -1,5 +1,4 @@
-@extends('layout_fa')
-@section('content')
+
     <div class="event-container">
         <div class="event-row">
             <div class="event-col-1">
@@ -21,4 +20,4 @@
         </div>
     </div>
 
-@stop
+

@@ -3,8 +3,12 @@
 	namespace App;
 
 	use Illuminate\Database\Eloquent\Model;
+	use Rutorika\Sortable\SortableTrait;
+
 
 	class Award extends Model {
+		use SortableTrait;
+		protected static $sortableField = 'sort';
 
 		protected $fillable = [
 			'name',
@@ -12,6 +16,7 @@
 			'description',
 			'description_fa',
 			'date',
+			'sort',
 			'project_id',
 		];
 

@@ -30,6 +30,7 @@
 			$event->photos()->create([
 				                         'image' => "/img/events/photos/{$name}",
 				                         'name'  => $name,
+				                         'sort'  => 1,
 			                         ]);
 
 			return redirect('admin/events/' . $event->id);
@@ -53,7 +54,7 @@
 			$event->delete();
 			flash()->error('Deleted', 'The Event has been Deleted.');
 
-			return back();
+			return redirect('/admin/events');
 		}
 
 		public function update(Request $request, Event $event)

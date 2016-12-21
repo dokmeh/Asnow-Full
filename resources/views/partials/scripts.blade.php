@@ -16,24 +16,26 @@
                 }
             });
 
-//            setTimeout(function () {
-//                if (loaded == true) {
-//                    //var posi = $(document).width() + obj.offset().left + ($(document).width() + obj.offset().left)/2;
-//                    var leftPos = ($(document).width() + obj[0].getBoundingClientRect().left + ($(document).width() / 10));
-//                    $('.loading').removeClass('loading-open').css('left', leftPos + 'px');
-////                    obj.removeClass('li-clicked, li-open');
-//                }
-//            }, 3000);
-//            setTimeout(function () {
-////                obj.removeClass('li-clicked');
-//                $('.linehand.l-3-s').removeClass('l-3-s');
-//                $('.menu-but').show();
-//            }, 3000);
+            setTimeout(function () {
+                if (loaded == true) {
+                    //var posi = $(document).width() + obj.offset().left + ($(document).width() + obj.offset().left)/2;
+                    var leftPos = ($(document).width() + obj[0].getBoundingClientRect().left + ($(document).width() / 10));
+                    $('.loading').removeClass('loading-open').css('left', leftPos + 'px');
+//                    obj.removeClass('li-clicked, li-open');
+                }
+            }, 3000);
+            setTimeout(function () {
+                obj.removeClass('li-clicked');
+                $('.linehand.l-3-s').removeClass('l-3-s');
+                $('.menu-but').show();
+            }, 3000);
         })
 
 
     </script>
 @endif
+
+
 
 @if ($page == 'projects')
     <script>
@@ -276,6 +278,8 @@
 @if ($page == 'about')
     <script>
         $(document).ready(function () {
+
+
             $('.about-img').imageloader({
                 callback: function (ele) {
                     $(ele).parent().addClass('loaded');
@@ -301,7 +305,7 @@
                 $('.loading').addClass('loading-open').css('left', leftPos + 'px');
                 $('body').attr('data-page', 'project');
                 window.history.pushState({}, $(this).attr('data-title'), $(this).attr('href'));
-                loadAjax($(this).attr('href'));
+                $(this).attr('href');
                 return false;
                 setTimeout(function () {
                 }, 0);

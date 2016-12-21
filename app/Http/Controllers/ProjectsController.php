@@ -54,7 +54,7 @@
 
 			flash()->error('Deleted', 'The Project has been deleted.');
 
-			return back();
+			return redirect('/admin/');
 		}
 
 		public function deletePhotos($id)

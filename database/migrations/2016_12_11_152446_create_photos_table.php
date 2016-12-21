@@ -16,6 +16,7 @@
 				$table->increments('id');
 				$table->string('image');
 				$table->string('name');
+				$table->integer('sort');
 				$table->integer('photoable_id');
 				$table->string('photoable_type');
 				$table->timestamps();

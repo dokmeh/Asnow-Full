@@ -19,6 +19,7 @@
 				$table->text('description');
 				$table->text('description_fa');
 				$table->integer('date');
+				$table->integer('sort');
 				$table->integer('project_id')->unsigned();
 				$table->foreign('project_id')->references('id')->on('projects')->onDelete('CASCADE')->onUpdate('CASCADE');
 				$table->timestamps();

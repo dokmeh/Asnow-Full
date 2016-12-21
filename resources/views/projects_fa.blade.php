@@ -1,5 +1,4 @@
-@extends('layout_fa')
-@section('content')
+
 
     <div class="projects-container">
         <div class="projects-cat-container">
@@ -40,4 +39,4 @@
         </div>
     </div>
 
-@stop
+

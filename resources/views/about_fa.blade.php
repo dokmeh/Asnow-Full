@@ -1,5 +1,4 @@
-@extends('layout_fa')
-@section('content')
+
     <div class="about-container">
         <div class="about-row">
             <div class="about-text-container">
@@ -123,4 +122,3 @@
         </div>
     </div>
 
-@stop

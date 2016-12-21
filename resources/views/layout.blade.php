@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <title>Aznow</title>
     <base href="{{ url('/') }}">
     <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
@@ -14,15 +14,15 @@
     {{--<script src="js/jquery.touchSwipe.min.js"></script>--}}
 
 </head>
-<body class="en">
+<body class="en" data-page="{{ $page  }}">
 <div class="linehand l-1-s">
     <nav class="menu">
         <ul>
-            <li><span class="line"></span><a href="about" data-page="about" data-title="Dokframe-projects"
+            <li><span class="line"></span><a class="link" href="about" data-page="about" data-title="Dokframe-projects"
                                              data-en="About" data-fa="درباره ما"></a></li>
             <li><span class="line"></span><a href="projects" data-page="projects" data-title="Dokframe-projects"
                                              data-en="Projects" data-fa="پروژه ها"></a></li>
-            <li><span class="line"></span><a href="events" data-page="events" data-title="Events" data-en="Events"
+            <li><span class="line"></span><a href="/events" data-page="events" data-title="Events" data-en="Events"
                                              data-fa="جوایز"></a></li>
             <li><span class="line"></span><a href="publications" data-page="publications"
                                              data-title="Dokframe-Publications" data-en="Publications"
@@ -31,7 +31,8 @@
                                              data-en="Contact" data-fa="تماس "></a></li>
         </ul>
         <div class="logo">
-            <a href="/"><img src="img/logo.svg" alt=""/></a>
+            <a href="/"><img src="/img/logo.svg" alt=""/></a>
+
         </div>
         <div class="lng-bar">
             <a href="{{ 'fa/' . Request::path() }}">فا</a>
@@ -90,9 +91,7 @@
 </div>
 <section class="inner-ajax" id="pjax">
 
-    @yield('content')
-
-
+    {!! $content !!}
 </section>
 <!--        <img class="menu-but" src="img/menu-icon.svg">-->
 <div class="menu-but">
@@ -100,7 +99,8 @@
         <span class="mile"></span><span class="mile"></span><span class="mile"></span>
     </div>
 </div>
+<script src="/js/script.js"></script>
+{{--@include('partials.scripts', [$page => $page])--}}
 
-@include('partials.scripts', [$page => $page])
 </body>
 </html>

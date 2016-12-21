@@ -15,7 +15,7 @@
 	Route::get('/fa/projects/{project}', 'PagesController@project_fa');
 	Route::get('/events/{event}', 'PagesController@event');
 	Route::get('/fa/events/{event}', 'PagesController@event_fa');
-	Route::get('/fa/about', 'PagesController@about');
+	Route::get('/about', 'PagesController@about');
 	Route::get('/fa/about', 'PagesController@about_fa');
 	Route::get('/contact', 'PagesController@contact');
 	Route::get('/fa/contact', 'PagesController@contact_fa');
@@ -38,11 +38,8 @@
 			Route::get('/{project}/edit', 'AdminsController@edit');
 			Route::get('/{project}/deletebtn', 'ProjectsController@destroy');
 			Route::get('/photo/{photo}/deletebtn', 'ProjectsController@deletePhotos');
-			Route::get('/award/{award}/deletebtn', 'AwardsController@destroy');
 			Route::get('/award/photo/{photo}/deletebtn', 'AwardsController@deletePhoto');
 			Route::get('/publications/file/{file}/deletebtn', 'PublicationsController@deleteFiles');
-			Route::get('/publications/{publication}/deletebtn', 'PublicationsController@destroy');
-
 			Route::post('/create', 'ProjectsController@store');
 			Route::patch('/{project}/edit', 'ProjectsController@update');
 			Route::post('/{project}/awards', 'AwardsController@store');
@@ -50,8 +47,27 @@
 			Route::post('/{project}/photos', 'ProjectsController@addPhotos');
 			Route::post('/{project}/thumbnails', 'ProjectsController@addThumbnails');
 			Route::delete('/{project}/delete', 'ProjectsController@destroy');
-			Route::post('/awards/{award}/edit', 'AwardsController@update');
-			Route::post('/publications/{publication}/edit', 'PublicationsController@update');
+		});
+		// Award Routes
+		Route::group(['prefix' => 'awards'], function () {
+			Route::get('/', 'AdminsController@awards');
+			Route::get('/{award}/edit', 'AdminsController@AwardsEdit');
+			Route::get('/{award}/deletebtn', 'AwardsController@destroy');
+			Route::post('/{award}/update', 'AwardsController@update');
+
+
+		});
+
+		// Publication Routes
+
+
+		Route::group(['prefix' => 'publications'], function () {
+			Route::get('/', 'AdminsController@publications');
+			Route::get('/{publication}/edit', 'AdminsController@PublicationsEdit');
+			Route::get('/{publication}/deletebtn', 'PublicationsController@destroy');
+			Route::post('/{publication}/update', 'PublicationsController@update');
+
+
 		});
 		//		Event Routes
 		Route::group(['prefix' => 'events'], function () {

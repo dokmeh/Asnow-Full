@@ -2,9 +2,11 @@
 
 	namespace App\Http\Controllers;
 
+	use App\Award;
 	use App\Category;
 	use App\Event;
 	use App\Project;
+	use App\Publication;
 	use App\Status;
 	use Illuminate\Http\Request;
 
@@ -116,5 +118,29 @@
 		public function EventEdit(Event $event)
 		{
 			return view('admin.edit-events', compact('event'));
+		}
+
+		public function awards()
+		{
+			$awards = Award::sorted()->get();
+
+			return view('admin.awards', compact('awards'));
+		}
+
+		public function AwardsEdit(Award $award)
+		{
+			return view('admin.edit-awards', compact('award'));
+		}
+
+		public function publications()
+		{
+			$publications = Publication::sorted()->get();
+
+			return view('admin.publications', compact('publications'));
+		}
+
+		public function PublicationsEdit(Publication $publication)
+		{
+			return view('admin.edit-publications', compact('publication'));
 		}
 	}

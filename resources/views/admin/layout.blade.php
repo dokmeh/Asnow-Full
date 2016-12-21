@@ -148,7 +148,8 @@
                             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
                             <!-- <li><a href="./pages/landing.html">Landing</a></li> -->
                             <li><a href="/admin/project/sort">Sorting</a></li>
-                            <li><a href="./pages/register.html">Register</a></li>
+                            <li><a href="/admin/publications">Publications</a></li>
+                            <li><a href="/admin/awards">Awards</a></li>
                             <!-- <li><a href="./pages/404.html">404</a></li> -->
                         </ul>
                     </div>

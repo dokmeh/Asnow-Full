@@ -28,17 +28,34 @@
 			return redirect('admin/project/' . $project);
 		}
 
+		public function addPhotos(Request $request, Publication $publication)
+		{
+			$file = $request->file('file');
+			$name = time() . $file->getClientOriginalName();
+			$file->move('img/publications/photos', $name);
+
+			//			$project = Project::find($id);
+
+			$publication->photos()->create([
+				                               'image' => "/img/publications/photos/{$name}",
+				                               'name'  => $name,
+			                               ]);
+
+			return redirect('admin/project/' . $project->id);
+		}
+
 		public function update(Request $request, Publication $publication)
 		{
-			$publication->update($request->all());
-
-			if (count($request->file('file') > 0)) {
+			//			dd($request->file('file'));
+			if (count($request->file('file')) > 0) {
 				$file = $request->file('file');
 				$name = time() . $file->getClientOriginalName();
 				$file->move('files/publications/files', $name);
 
 				$publication->files()->create(['path' => "/files/publications/files/{$name}"]);
 			}
+			$publication->update($request->all());
+
 			flash()->success('Done', 'Publication has been Updated.');
 
 
@@ -51,7 +68,7 @@
 			flash()->error('Deleted', 'Publication has been deleted.');
 
 
-			return back();
+			return redirect('/admin/publications');
 		}
 
 		public function deleteFiles($id)

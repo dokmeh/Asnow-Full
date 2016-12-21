@@ -1,5 +1,4 @@
-@extends('layout_fa')
-@section('content')
+
     <div class="project-container">
         <div class="project-info-container">
             <div class="texts-masks backface">
@@ -76,4 +75,4 @@
     </div>
 
 
-@stop
+

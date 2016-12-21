@@ -26,6 +26,7 @@
                     <form action="/admin/events/{{ $event->id }}/photos" class="dropzone" id="myAwesomeDropzone"
                           method="POST">
                         {{ csrf_field() }}
+                        <input type="hidden" name="sort" value="1">
                         <div class="dz-message" data-dz-message><span>Drop event's Photos here</span></div>
 
                     </form>

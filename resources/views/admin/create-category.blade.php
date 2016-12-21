@@ -27,8 +27,8 @@
                         <form action="/admin/category/create" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Category Name">
-                                <input type="text" name="name_fa" class="form-control" placeholder="نام موضوع">
+                                <input type="text" name="name" class="form-control" placeholder="Category Name" required>
+                                <input type="text" name="name_fa" class="form-control" placeholder="نام موضوع" required>
 
                             </div>
 

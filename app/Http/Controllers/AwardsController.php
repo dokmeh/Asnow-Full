@@ -51,11 +51,14 @@
 				$name = time() . $file->getClientOriginalName();
 				$file->move('img/awards/photos', $name);
 
-				$award->photo()->create(['image' => "/img/awards/photos/{$name}"]);
+				$award->photo()->create([
+					                        'image' => "/img/awards/photos/{$name}",
+					                        'name'  => $name,
+				                        ]);
 			}
 			flash()->success('Done', 'Award has been Updated.');
 
-			return back();
+			return redirect('/admin/awards');
 		}
 
 		public function deletePhoto($id)

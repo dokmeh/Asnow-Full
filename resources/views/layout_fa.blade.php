@@ -14,16 +14,19 @@
     {{--<script src="js/jquery.touchSwipe.min.js"></script>--}}
 
 </head>
-<body class="fa">
+<body class="fa" data-page="{{ $page  }}">
 <div class="linehand l-1-s">
     <nav class="menu">
         <ul>
             <li><span class="line"></span><a href="fa/about" data-page="about" data-title="Dokframe-projects">درباره
                                                                                                               ما</a>
             </li>
-            <li><span class="line"></span><a href="fa/projects" data-page="projects" data-title="Dokframe-projects">پروژه
-                                                                                                                    ها</a>
+            <li>
+                <span class="line"></span><a href="fa/projects" data-page="projects" data-title="Dokframe-projects">پروژه
+                                                                                                                    ها </a>
+
             </li>
+            </a>
             <li><span class="line"></span><a href="fa/events" data-page="events" data-title="Events">رویدادها</a></li>
             <li><span class="line"></span><a href="fa/publications" data-page="publications"
                                              data-title="Dokframe-Publications">در نشریات</a></li>
@@ -91,7 +94,7 @@
 </div>
 <section class="inner-ajax" id="pjax">
 
-    @yield('content')
+    {!! $content !!}
 
 
 </section>
@@ -102,7 +105,8 @@
     </div>
 </div>
 
+<script src="/js/script.js"></script>
 
-@include('partials.scripts', [$page => $page])
+{{--@include('partials.scripts', [$page => $page])--}}
 </body>
 </html>

@@ -13,17 +13,19 @@
                         <form action="/admin/events/create" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Event's Name...">
-                                <input type="text" name="name_fa" class="form-control" placeholder="نام رویداد">
+                                <input type="text" name="name" class="form-control" placeholder="Event's Name..."
+                                       required>
+                                <input type="text" name="name_fa" class="form-control" placeholder="نام رویداد"
+                                       required>
 
                                 <textarea name="description" rows="3" class="form-control"
-                                          placeholder="Description..."></textarea>
+                                          placeholder="Description..." required></textarea>
                                 <p>توضیحات:</p>
                                 <textarea name="description_fa" rows="3" class="form-control"
-                                          placeholder="Description..."></textarea>
+                                          placeholder="Description..." required></textarea>
                                 <Br>
                                 <input name="date" type="date" step="1"
-                                       placeholder="Date"/>
+                                       placeholder="Date" required/>
 
                                 <br><br>
                                 <button type="submit" class="btn btn-primary">Next</button>

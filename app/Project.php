@@ -3,9 +3,11 @@
 	namespace App;
 
 	use Illuminate\Database\Eloquent\Model;
+	use Rutorika\Sortable\SortableTrait;
 
 	class Project extends Model {
-		use \Rutorika\Sortable\SortableTrait;
+		use SortableTrait;
+		//		use MorphToSortedManyTrait;
 
 		protected static $sortableField = 'sort';
 

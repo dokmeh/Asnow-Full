@@ -25,7 +25,7 @@
                         <form action="/admin/status/create" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Status Name">
+                                <input type="text" name="name" class="form-control" placeholder="Status Name" required>
 
                             </div>
 
