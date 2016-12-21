@@ -52,6 +52,23 @@
                                         <option value="{{ $status->id }}">{{ $status->name }}</option>
                                     @endforeach
                                 </select>
+
+                                <div>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" name="visible" id="radio5" value="1"
+                                               @if($project->visible == 1) checked @endif>
+                                        <label for="radio5">
+                                            Show
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" name="visible" id="radio6" value="0"
+                                               @if($project->visible == 0) checked @endif>
+                                        <label for="radio6">
+                                            Hide
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col-md-6">
@@ -179,6 +196,8 @@
                                           name="description_fa"
                                           rows="1" class="form-control"
                                           placeholder="{{ $publication->description_fa }}">{{ $publication->description_fa }}</textarea><br>
+
+
                                 <button type="submit" class="btn btn-primary">Save Publication</button>
                                 <a href="/admin/project/{{ $project->id }}/edit"
                                    class="btn btn-default">Cancel</a>

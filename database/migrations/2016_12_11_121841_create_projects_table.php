@@ -26,6 +26,7 @@
 				$table->string('completed_at');
 				$table->integer('site_area');
 				$table->integer('floor_area');
+				$table->enum('visible', [0, 1]);
 				$table->integer('sort');
 				$table->integer('category_id')->unsigned();
 				$table->integer('status_id')->unsigned();

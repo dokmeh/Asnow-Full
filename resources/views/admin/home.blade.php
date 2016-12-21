@@ -17,6 +17,7 @@
                             <th>Name</th>
                             <th>Client</th>
                             <th>Status</th>
+                            <th>Visible</th>
                             <th>Category</th>
                             <th>Design At</th>
                             <th>Completed At</th>
@@ -34,6 +35,11 @@
 
                                 <td>{{ $project->client }}</td>
                                 <td>{{ $project->status->name }}</td>
+                                <td>@if ($project->visible == 1)
+                                        Show
+                                    @else
+                                        Hide
+                                    @endif</td>
                                 <td>{{ $project->category->name }}</td>
                                 <td>{{ $project->design_at }}</td>
                                 <td>{{ $project->completed_at }}</td>

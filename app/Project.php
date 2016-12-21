@@ -21,6 +21,7 @@
 			'description',
 			'description_fa',
 			'design_at',
+			'visible',
 			'completed_at',
 			'site_area',
 			'floor_area',

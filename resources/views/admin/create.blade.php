@@ -13,7 +13,7 @@
                         @if (count($categories) > 0 && count($statuses) > 0)
                             <form action="/admin/project/create" method="POST">
                                 {{ csrf_field() }}
-                                {{--<input type="hidden" name="sort" value="{{ $sort }}">--}}
+                                <input type="hidden" name="visible" value="0">
                                 <div class="col-md-6">
                                     <input type="text" name="title" class="form-control" placeholder="Title..."
                                            required>
@@ -51,10 +51,10 @@
 
 
                                 <textarea name="description" rows="3" class="form-control"
-                                          placeholder="Description..." required></textarea>
+                                          placeholder="Description..."></textarea>
                                     <p>توضیحات:</p>
                                     <textarea name="description_fa" rows="3" class="form-control"
-                                              placeholder="Description..." required></textarea>
+                                              placeholder="Description..."></textarea>
                                     <Br>
                                     <input name="design_at" type="number" min="1900" max="2099" step="1"
                                            placeholder="Designed At" required/>

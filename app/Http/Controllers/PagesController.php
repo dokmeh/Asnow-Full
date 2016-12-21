@@ -30,7 +30,7 @@
 		public function projects(Request $request)
 		{
 			$page       = 'projects';
-			$projects   = Project::sorted()->get();
+			$projects   = Project::sorted()->where('visible', 1)->get();
 			$categories = Category::all();
 			$content    = view('projects', compact('projects', 'categories'));
 			if ($request->ajax()) {
@@ -43,7 +43,7 @@
 		public function projects_fa(Request $request)
 		{
 			$page       = 'projects';
-			$projects   = Project::sorted()->get();
+			$projects   = Project::sorted()->where('visible', 1)->get();
 			$categories = Category::all();
 			$content    = view('projects_fa', compact('projects', 'categories'));
 			if ($request->ajax()) {
