@@ -10,7 +10,7 @@
             @if (count($project->awards) > 0)
                 <h3>Awards:</h3>
 
-                @foreach ($project->awards as $award)
+                @foreach ($project->awards()->sorted()->get() as $award)
                     <p>{{ $award->name }}</p>
                     <img src="{{ $award->photo->image }}" width="100" alt="">
                 @endforeach
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="texts-masks backface back-side">
-            @foreach ($project->photos as $photo)
+            @foreach ($project->photos()->sorted()->get() as $photo)
 
                 <div class="project-img-box-t">
                     <img src="{{ $photo->image }}" class="project-img-t"
@@ -45,7 +45,7 @@
         {{--<img src="{{ $project->photos->last()->image }}" class="project-img show"--}}
         {{--onload="$(this).addClass('Loaded')">--}}
         {{--</div>--}}
-        @foreach ($project->photos as $photo)
+        @foreach ($project->photos()->sorted()->get() as $photo)
 
             <div class="project-img-box">
                 <img src="{{ $photo->image }}" class="project-img" onload="$(this).addClass('Loaded')">
