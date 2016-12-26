@@ -32,10 +32,14 @@
 		Route::get('/login', 'AdminsController@login');
 		//		Project Routes
 		Route::group(['prefix' => 'project'], function () {
+			Route::get('/', 'AdminsController@projects');
 			Route::get('/create', 'AdminsController@create');
+			Route::get('/create/fa/{project}', 'AdminsController@createFa');
 			Route::get('/sort', 'AdminsController@sort');
 			Route::get('/{project}', 'AdminsController@show');
 			Route::get('/{project}/edit', 'AdminsController@edit');
+			Route::get('/{project}/publications/create', 'AdminsController@PublicationsCreate');
+			Route::get('/{project}/awards/create', 'AdminsController@AwardsCreate');
 			Route::get('/{project}/deletebtn', 'ProjectsController@destroy');
 			Route::get('/photo/{photo}/deletebtn', 'ProjectsController@deletePhotos');
 			Route::get('/award/photo/{photo}/deletebtn', 'AwardsController@deletePhoto');
@@ -60,7 +64,6 @@
 
 		// Publication Routes
 
-
 		Route::group(['prefix' => 'publications'], function () {
 			Route::get('/', 'AdminsController@publications');
 			Route::get('/{publication}/edit', 'AdminsController@PublicationsEdit');
@@ -74,6 +77,7 @@
 
 			Route::get('/', 'AdminsController@events');
 			Route::get('/create', 'AdminsController@EventsCreate');
+			Route::get('/{event}/create/fa', 'AdminsController@EventsCreateFa');
 			Route::get('/{event}', 'EventsController@show');
 			Route::get('/{event}/edit', 'AdminsController@EventEdit');
 			Route::get('/{event}/deletebtn', 'EventsController@destroy');

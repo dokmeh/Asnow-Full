@@ -15,23 +15,23 @@
 			Schema::create('projects', function (Blueprint $table) {
 				$table->increments('id');
 				$table->string('title');
-				$table->string('title_fa');
+				$table->string('title_fa')->nullable();
 				$table->string('location');
-				$table->string('location_fa');
+				$table->string('location_fa')->nullable();
 				$table->string('client');
-				$table->string('client_fa');
+				$table->string('client_fa')->nullable();
 				$table->text('description');
-				$table->text('description_fa');
+				$table->text('description_fa')->nullable();
 				$table->string('design_at');
-				$table->string('completed_at');
+				$table->string('completed_at')->nullable();
 				$table->integer('site_area');
 				$table->integer('floor_area');
 				$table->enum('visible', [0, 1]);
 				$table->integer('sort');
 				$table->integer('category_id')->unsigned();
 				$table->integer('status_id')->unsigned();
-				$table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE')->onUpdate('CASCADE');
-				$table->foreign('status_id')->references('id')->on('statuses')->onDelete('CASCADE')->onUpdate('CASCADE');
+				$table->foreign('category_id')->references('id')->on('categories')->onUpdate('CASCADE');
+				$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('CASCADE');
 
 				$table->timestamps();
 			});

@@ -16,6 +16,7 @@
 				$table->increments('id');
 				$table->string('name');
 				$table->string('name_fa');
+				$table->enum('visible', [0, 1]);
 				$table->text('description');
 				$table->text('description_fa');
 				$table->integer('sort');

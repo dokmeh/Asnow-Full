@@ -12,7 +12,7 @@
 			$event = Event::create($request->all());
 			flash()->overlay('Success', 'Your Event Has Been Created Successfully, Now Upload the Photos');
 
-			return redirect("/admin/events/{$event->id}");
+			return redirect("/admin/events/{$event->id}/create/fa");
 		}
 
 		public function show(Event $event)

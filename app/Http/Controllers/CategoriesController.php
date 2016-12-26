@@ -16,6 +16,7 @@
 
 		public function destroy(Category $category)
 		{
+			$category->projects()->update(['visible' => 0]);
 			$category->delete();
 
 			return back();

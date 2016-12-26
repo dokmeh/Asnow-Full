@@ -12,9 +12,9 @@
 		public function store(Request $request)
 		{
 			$project = Project::create($request->all());
-			flash()->overlay('Success', 'Your Project Has Been Created Successfully, Now Upload the Photos');
+			flash()->overlay('Success', 'Now Add Persian Information');
 
-			return redirect("/admin/project/{$project->id}");
+			return redirect("/admin/project/create/fa/{$project->id}");
 		}
 
 		public function addPhotos(Request $request, Project $project)

@@ -29,6 +29,13 @@
 			return view('admin.home', compact('projects'));
 		}
 
+		public function projects()
+		{
+			$projects = Project::sorted()->get();
+
+			return view('admin.projects', compact('projects'));
+		}
+
 		public function create()
 		{
 
@@ -37,6 +44,11 @@
 
 
 			return view('admin.create', compact('categories', 'statuses'));
+		}
+
+		public function createFa(Project $project)
+		{
+			return view('admin.create_fa', compact('project'));
 		}
 
 		public function store(Request $request)
@@ -115,16 +127,44 @@
 			return view('admin.events-create');
 		}
 
+		public function EventsCreateFa(Event $event)
+		{
+			return view('admin.events-create-fa', compact('event'));
+		}
+
 		public function EventEdit(Event $event)
 		{
 			return view('admin.edit-events', compact('event'));
 		}
 
+		public function publications()
+		{
+			$projects = Project::all();
+
+			return view('admin.publications', compact('projects'));
+		}
+
+		public function PublicationsCreate(Project $project)
+		{
+
+			return view('admin.publications-create', compact('project'));
+		}
+
+		public function PublicationsEdit(Publication $publication)
+		{
+			return view('admin.edit-publications', compact('publication'));
+		}
+
 		public function awards()
 		{
-			$awards = Award::sorted()->get();
+			$projects = Project::all();
 
-			return view('admin.awards', compact('awards'));
+			return view('admin.awards', compact('projects'));
+		}
+
+		public function AwardsCreate(Project $project)
+		{
+			return view('admin.awards-create', compact('project'));
 		}
 
 		public function AwardsEdit(Award $award)
@@ -132,15 +172,4 @@
 			return view('admin.edit-awards', compact('award'));
 		}
 
-		public function publications()
-		{
-			$publications = Publication::sorted()->get();
-
-			return view('admin.publications', compact('publications'));
-		}
-
-		public function PublicationsEdit(Publication $publication)
-		{
-			return view('admin.edit-publications', compact('publication'));
-		}
 	}

@@ -1,153 +1,211 @@
 @extends('admin.layout')
 @section('content')
-    <div class="row">
-        <div class="col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="card-header">
-                    {{ $project->title }}
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Project #{{ $project->id }}
+                </h3>
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h4>Description:</h4>
-                            <p>{!! $project->description !!}</p>
+            </div>
+        </div>
 
-                            <h4>Client:</h4>
-                            <p>{{ $project->client}}</p>
+        <div class="clearfix"></div>
 
-                            <h4>Address:</h4>
-                            <p>{{ $project->location }}</p>
-
-
-                        </div>
-
-
-                        <div class="col-sm-6">
-
-                            <h4>Designed At:</h4>
-                            <p>{{ $project->design_at}}</p>
-
-                            <h4>Completed At:</h4>
-                            <p>{{ $project->completed_at }}</p>
-
-                            Status: <span
-                                    class="badge @if($project->status->name == 'Completed') badge-success @else badge-warning @endif
-                                            badge-icon"><i
-                                        class="fa @if ($project->status->name == 'Completed')
-                                                fa-check
-                                                                                        @else fa-clock-o @endif"
-                                        aria-hidden="true"></i><span>{{ $project->status->name }}</span></span>
-
-                            <p>Category: {{ $project->category->name }}</p>
-
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <h3 class="text-danger">This project achieved some awards?</h3>
-                        <button id="show" class="btn btn-success">So add it</button>
-                        <div id="award">
-                            <button id="hide" class="btn btn-danger">Close this form</button>
-
-                            <form action="/admin/project/{{ $project->id }}/awards" method="POST"
-                                  enctype="multipart/form-data">
-
-                                {{ csrf_field() }}
-                                <input type="text" name="name" class="form-control" placeholder="Award's Name">
-                                <input type="text" name="name_fa" class="form-control" placeholder="نام جایزه">
-                                <input name="date" type="number" min="1900" max="2099" step="1"
-                                       placeholder="Award's Achieved Year"/><br>
-                                <strong>Upload an icon for this award</strong><input type="file" name="file">
-                                <textarea name="description" rows="1" class="form-control"
-                                          placeholder="Award's Description"></textarea><br>
-                                <p>توضیحات:</p>
-                                <textarea name="description_fa" rows="1" class="form-control"
-                                          placeholder="Award's Description"></textarea><br>
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </form>
-                        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>{{ $project->title }}</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
                     </div>
 
+                    <div class="x_content">
 
-                    <div class="row">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
 
-                        <h3 class="text-danger">This project published in any publication?!</h3>
-                        <button id="show-publication" class="btn btn-success">So mention it</button>
-                        <div id="publication">
-                            <button id="hide-publication" class="btn btn-danger">Close this form</button>
+                            <h2>Project Photos</h2>
+                            <div>
 
-                            <form action="/admin/project/{{ $project->id }}/publications" method="POST"
-                                  enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="text" name="name" class="form-control" placeholder="Publication's Name">
-                                <input type="text" name="name_fa" class="form-control" placeholder="نام مجله">
+                                <h4>Project's Awards and Publications</h4>
 
-                                <strong>Upload a file for this publication</strong><input type="file" name="file">
-                                <textarea name="description" rows="1" class="form-control"
-                                          placeholder="Publication's Description"></textarea><br>
-                                <p>توضیحات:</p>
-                                <textarea name="description_fa" rows="1" class="form-control"
-                                          placeholder="Publication's Description"></textarea><br>
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </form>
+                                <!-- end of user messages -->
+
+                                <ul class="messages">
+
+                                    @if (count($project->awards) > 0)
+                                        @foreach ($project->awards as $award)
+
+                                            <li>
+                                                <img src="{{ $award->photo->image }}" class="avatar"
+                                                     alt="Thumbnail">
+                                                <div class="message_date">
+
+                                                    <p class="month">{{ $award->date }}</p>
+                                                </div>
+                                                <div class="message_wrapper">
+                                                    <h4 class="heading">{{ $award->name }}</h4>
+                                                    <blockquote class="message">{!! $award->description !!}
+                                                    </blockquote>
+                                                    <br/>
+                                                    <p class="url">
+                                                        <span class="fs1 text-info" aria-hidden="true"
+                                                              data-icon=""></span>
+                                                        <a href="/admin/awards/{{ $award->id }}/edit"><i
+                                                                    class="fa fa-paperclip"></i> Edit This Award
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    @else <p>0 Award(s)</p>
+
+                                    @endif
+
+                                    @if (count($project->publications) > 0)
+                                        @foreach ($project->publications as $publication)
+
+                                            <li>
+
+                                                <div class="message_wrapper">
+                                                    <h4 class="heading">{{ $publication->name }}</h4>
+                                                    <blockquote class="message">{!!  $publication->description !!}
+                                                    </blockquote>
+                                                    <br/>
+                                                    <p class="url">
+                                                        <span class="fs1 text-info" aria-hidden="true"
+                                                              data-icon=""></span>
+                                                        <a href="/admin/publications/{{ $publication->id }}/edit"><i
+                                                                    class="fa fa-paperclip"></i> Edit This
+                                                                                                 Publication
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    @else <p>0 Publication(s)</p>
+                                    @endif
+                                </ul>
+                                <!-- end of user messages -->
+
+                            </div>
+
+
                         </div>
+
+                        <!-- start project-detail sidebar -->
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+
+                            <section class="panel">
+
+                                <div class="x_title">
+                                    <h2>Project Description:</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    <h3 class="green"><i class="fa fa-building"></i> {{ $project->title }}</h3>
+
+                                    <p>{!! $project->description !!}</p>
+                                    <br/>
+
+                                    <div class="project_detail">
+
+                                        <p class="title">Client Company</p>
+                                        <p>{{ $project->client }}</p>
+                                        <p class="title">Project Location</p>
+                                        <p>{{ $project->location }}</p>
+
+                                        <p>
+
+                                        <div class="">
+                                            <label>
+                                                <input name="visible" type="checkbox" disabled="disabled"
+                                                       class="js-switch"
+                                                       @if ($project->visible == 1)
+                                                       checked
+                                                        @endif
+
+                                                /> Visibility
+                                            </label>
+                                        </div>
+                                        <small>To Change the visiblity please go to edit page.</small>
+                                        </p>
+                                    </div>
+
+                                    <br/>
+                                    <h5>Project details:</h5>
+                                    <ul class="list-unstyled project_files">
+                                        <li><a href=""><i class="fa fa-file-word-o"></i>
+                                                Design Date: {{ $project->design_at }}</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-file-pdf-o"></i> Completed
+                                                                                        Date: {{ $project->completed_at }}
+                                            </a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-mail-forward"></i> Site
+                                                                                          Area: {{ $project->site_area }}
+                                            </a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-picture-o"></i> Floor
+                                                                                       Area: {{ $project->floor_area }}
+                                            </a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-file-word-o"></i>
+                                                Category: {{ $project->category->name }}
+                                        </li>
+                                        <li><a href=""><i class="fa fa-file-word-o"></i>
+                                                Status: {{ $project->status->name }}</a>
+                                        </li>
+                                    </ul>
+                                    <br/>
+
+
+                                    <div class="text-center mtop20">
+                                        <a href="/admin/project/{{ $project->id }}/awards/create"
+                                           class="btn btn-sm btn-primary">Add Award</a>
+                                        <a href="/admin/project/{{ $project->id }}/publications/create"
+                                           class="btn btn-sm btn-warning">Add Publication</a>
+                                        <a href="/admin/project/{{ $project->id }}/edit" class="btn btn-sm btn-success">Edit</a>
+                                        <a href="/admin/project/{{ $project->id }}/deletebtn"
+                                           class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </div>
+
+                            </section>
+
+                        </div>
+                        <!-- end project-detail sidebar -->
+
                     </div>
-
-
-                    <hr>
-                    <h2 class="text-center">Project Photos</h2><br>
-                    <form action="/admin/project/{{ $project->id }}/photos" class="dropzone" id="myAwesomeDropzone"
-                          method="POST">
-                        {{ csrf_field() }}
-                        <div class="dz-message" data-dz-message><span>Drop project's Photos here</span></div>
-                        {{--<div id="preview-template" style="display: none;"></div>--}}
-
-                    </form>
-                    <br>
-                    <h3 class="text-center">Thumbnail</h3>
-                    <h4 class="text-danger">Note: First choose the main thumbnail then choose the plan (Don't
-                                            choose them multiple).</h4>
-                    <form action="/admin/project/{{ $project->id }}/thumbnails" class="dropzone"
-                          id="myAwesomeDropzone"
-                          method="POST">
-                        {{ csrf_field() }}
-                        <div class="dz-message" data-dz-message><span>Drop project's Thumbnail here</span></div>
-
-                    </form>
-
-
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $("#award").hide();
-            $("#publication").hide();
-
-            $("#hide").click(function () {
-                $("#award").hide();
-                $("#show").show();
-
-            });
-            $("#show").click(function () {
-                $("#award").show();
-                $("#show").hide();
-            });
-
-
-            $("#hide-publication").click(function () {
-                $("#publication").hide();
-                $("#show-publication").show();
-
-            });
-            $("#show-publication").click(function () {
-                $("#publication").show();
-                $("#show-publication").hide();
-            });
-        });
-
-    </script>
+    </div>
 
 @stop
