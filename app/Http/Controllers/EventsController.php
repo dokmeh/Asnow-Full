@@ -51,8 +51,9 @@
 
 		public function destroy(Event $event)
 		{
+
 			$event->delete();
-			flash()->error('Deleted', 'The Event has been Deleted.');
+			flash()->delete('Deleted', 'The Event has been Deleted.');
 
 			return redirect('/admin/events');
 		}

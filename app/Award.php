@@ -13,6 +13,7 @@
 		protected $fillable = [
 			'name',
 			'name_fa',
+			'visible',
 			'description',
 			'description_fa',
 			'date',

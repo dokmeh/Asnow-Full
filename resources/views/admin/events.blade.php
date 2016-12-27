@@ -107,13 +107,31 @@
                                             <a href="/admin/events/{{ $event->id }}/edit"
                                                class="btn btn-info btn-xs"><i
                                                         class="fa fa-pencil"></i> Edit </a>
-                                            <a href="/admin/events/{{ $event->id }}/deletebtn"
+                                            <a id="{{ $event->id }}"
+                                               data-href="/admin/events/{{ $event->id }}/deletebtn"
                                                class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete
                                             </a>
 
 
                                         </td>
                                     </tr>
+                                    <script>
+                                        $('a#{{ $event->id }}').on('click', function () {
+                                            swal({
+                                                    title             : "Are you sure?",
+                                                    text              : "You will not be able to recover this!",
+                                                    type              : "warning",
+                                                    showCancelButton  : true,
+                                                    confirmButtonColor: "#DD6B55",
+                                                    confirmButtonText : "Yes, delete it!",
+                                                    closeOnConfirm    : false
+                                                },
+                                                function () {
+                                                    href                 = $('#{{ $event->id }}').attr('data-href');
+                                                    window.location.href = href;
+                                                });
+                                        })
+                                    </script>
 
                                 @endforeach
 
@@ -131,4 +149,6 @@
             </div>
         </div>
     </div>
+
+
 @stop

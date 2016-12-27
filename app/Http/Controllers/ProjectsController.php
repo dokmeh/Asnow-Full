@@ -50,9 +50,11 @@
 		public function destroy(Project $project)
 		{
 
+
+			flash()->delete('Deleted', 'The Project has been deleted.');
+
 			$project->delete();
 
-			flash()->error('Deleted', 'The Project has been deleted.');
 
 			return redirect('/admin/');
 		}

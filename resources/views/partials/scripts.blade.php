@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 @if ($page !== 'home')
     <script>
         var loaded = false;

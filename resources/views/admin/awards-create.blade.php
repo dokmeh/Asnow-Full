@@ -51,6 +51,7 @@
                               data-parsley-validate
                               class="form-horizontal form-label-left" enctype="multipart/form-data">
                             {{ csrf_field() }}
+                            <input type="hidden" name="visible" value="0">
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Award's Name:
                                     <span class="required">*</span>

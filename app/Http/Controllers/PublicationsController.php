@@ -14,6 +14,7 @@
 				                                   'name_fa'        => $request->input('name_fa'),
 				                                   'description'    => $request->input('description'),
 				                                   'description_fa' => $request->input('description_fa'),
+				                                   'visible'        => $request->input('visible'),
 				                                   'project_id'     => $project,
 			                                   ]);
 

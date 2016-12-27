@@ -261,7 +261,8 @@
                                         <button type="submit" id="submit" value="submit" class="btn btn-success">
                                             Save
                                         </button>
-                                        <a href="/admin/project/{{$project->id}}/deletebtn" class="btn btn-danger">Delete</a>
+                                        <a id="{{ $project->id }}" data-href="/admin/project/{{$project->id}}/deletebtn"
+                                           class="btn btn-danger">Delete</a>
 
                                     </div>
                                 </div>

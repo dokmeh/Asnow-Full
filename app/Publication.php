@@ -14,6 +14,7 @@
 			'name',
 			'name_fa',
 			'description',
+			'visible',
 			'description_fa',
 			'sort',
 			'project_id',

@@ -336,7 +336,6 @@
 </script>
 <!-- /bootstrap-wysiwyg -->
 
-
 @include('partials.flash')
 
 
