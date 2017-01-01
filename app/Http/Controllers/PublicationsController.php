@@ -83,4 +83,22 @@
 
 			return back();
 		}
+
+		public function publications()
+		{
+			$projects = Project::all();
+
+			return view('admin.publications', compact('projects'));
+		}
+
+		public function PublicationsCreate(Project $project)
+		{
+
+			return view('admin.publications-create', compact('project'));
+		}
+
+		public function PublicationsEdit(Publication $publication)
+		{
+			return view('admin.edit-publications', compact('publication'));
+		}
 	}

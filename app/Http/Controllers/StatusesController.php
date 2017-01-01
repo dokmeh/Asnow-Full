@@ -28,4 +28,11 @@
 			return back();
 		}
 
+		public function status()
+		{
+			$statuses = Status::all();
+
+			return view('admin.create-status', compact('statuses'));
+		}
+
 	}

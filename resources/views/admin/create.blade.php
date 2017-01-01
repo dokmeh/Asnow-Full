@@ -174,6 +174,48 @@
                                 </div>
 
 
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">نام پروژه
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="title" name="title_fa" required="required"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="location">موقعیت:
+                                        <span
+                                                class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="location" name="location_fa" required="required"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                        کارفرما:</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input id="client" class="form-control  col-md-7 col-xs-12" type="text"
+                                               name="client_fa">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">توضیحات: <span
+                                                class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    <textarea type="hidden" name="description_fa" title="description" id="description"
+                                              style="display:block;"></textarea>
+                                    </div>
+                                </div>
+
+
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

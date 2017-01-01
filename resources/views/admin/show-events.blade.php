@@ -82,8 +82,26 @@
                                         <a href="/admin/events/{{ $event->id }}/edit" class="btn btn-sm btn-success">Edit</a>
                                     </li>
                                     <li>
-                                        <a href="/admin/events/{{ $event->id }}/deletebtn"
+                                        <a id="{{ $event->id }}" href="/admin/events/{{ $event->id }}/deletebtn"
                                            class="btn btn-sm btn-danger">Delete</a>
+
+                                        <script>
+                                            $('a#{{ $event->id  }}').on('click', function () {
+                                                swal({
+                                                        title             : "Are you sure?",
+                                                        text              : "You will not be able to recover this!",
+                                                        type              : "warning",
+                                                        showCancelButton  : true,
+                                                        confirmButtonColor: "#DD6B55",
+                                                        confirmButtonText : "Yes, delete it!",
+                                                        closeOnConfirm    : false
+                                                    },
+                                                    function () {
+                                                        href                 = $('#{{ $event->id  }}').attr('data-href');
+                                                        window.location.href = href;
+                                                    });
+                                            })
+                                        </script>
                                     </li>
 
                                     <li>

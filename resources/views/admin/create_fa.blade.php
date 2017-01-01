@@ -24,7 +24,7 @@
                     <div class="x_title">
 
                         <h2>Create Form
-                            <small>Second Step: Persian Information</small>
+                            <small>Second Step: Add the Photos</small>
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -47,55 +47,8 @@
 
                     <div class="x_content">
                         <br/>
-                        <form id="demo-form2" action="/admin/project/{{ $project->id }}/edit" method="POST"
-                              data-parsley-validate
-                              class="form-horizontal form-label-left">
-                            {{ csrf_field() }}
-                            {{ method_field('PATCH')  }}
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">نام پروژه
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="title" name="title_fa" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="location">موقعیت:
-                                    <span
-                                            class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="location" name="location_fa" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="client" class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    کارفرما:</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="client" class="form-control  col-md-7 col-xs-12" type="text"
-                                           name="client_fa">
-                                </div>
-                            </div>
 
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">توضیحات: <span
-                                            class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-
-                                    <textarea type="hidden" name="description_fa" title="description" id="description"
-                                              style="display:block;"></textarea>
-                                </div>
-                            </div>
-
-
-                        </form>
-
-                        <div class="ln_solid"></div>
                         <h2 class="text-center">Project Photos</h2><br>
                         <form action="/admin/project/{{ $project->id }}/photos" class="dropzone" id="myAwesomeDropzone"
                               method="POST">
@@ -118,11 +71,9 @@
 
 
                         <div style="margin-top: 15px" class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <a href="/admin/project/create/fa/{{ $project->id }}" class="btn btn-primary">Cancel</a>
-                            <button type="submit" form="demo-form2" id="submit" value="submit"
-                                    class="btn btn-success">
-                                Submit
-                            </button>
+
+                            <a href="/admin/project/{{ $project->id }}" class="btn btn-success"> Done!
+                            </a>
 
                         </div>
 

@@ -28,4 +28,12 @@
 
 			return back();
 		}
+
+		public function category()
+		{
+			$categories = Category::all();
+
+			return view('admin.create-category', compact('categories'));
+		}
+
 	}

@@ -182,7 +182,7 @@
 		public function publications(Request $request)
 		{
 			$page         = 'publications';
-			$publications = Publication::all();
+			$publications = Publication::sorted()->get();
 			$content      = view('publications', compact('publications'));
 			if ($request->ajax()) {
 				return $content;
@@ -194,7 +194,7 @@
 		public function publications_fa(Request $request)
 		{
 			$page         = 'publications';
-			$publications = Publication::all();
+			$publications = Publication::sorted()->get();
 			$content      = view('publications_fa', compact('publications'));
 			if ($request->ajax()) {
 				return $content;

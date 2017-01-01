@@ -77,4 +77,26 @@
 
 			return back();
 		}
+
+		public function events()
+		{
+			$events = Event::all();
+
+			return view('admin.events', compact('events'));
+		}
+
+		public function EventsCreate()
+		{
+			return view('admin.events-create');
+		}
+
+		public function EventsCreateFa(Event $event)
+		{
+			return view('admin.events-create-fa', compact('event'));
+		}
+
+		public function EventEdit(Event $event)
+		{
+			return view('admin.edit-events', compact('event'));
+		}
 	}

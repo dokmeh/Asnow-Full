@@ -72,7 +72,7 @@
                                         </thead>
                                         <tbody class="sortable" data-entityname="awards">
 
-                                        @foreach ($project->awards as $award)
+                                        @foreach ($project->awards()->sorted()->get() as $award)
 
                                             <tr data-itemId="{{ $project->id }}">
                                                 <td class="sortable-handle"><span class="fa fa-bars fa-2x"

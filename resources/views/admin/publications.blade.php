@@ -73,7 +73,7 @@
                                         </thead>
                                         <tbody class="sortable" data-entityname="publications">
 
-                                        @foreach ($project->publications as $publication)
+                                        @foreach ($project->publications()->sorted()->get() as $publication)
 
                                             <tr data-itemId="{{ $project->id }}">
                                                 <td class="sortable-handle"><span class="fa fa-bars fa-2x"
@@ -106,11 +106,30 @@
                                                     <a href="/admin/publications/{{ $publication->id }}/edit"
                                                        class="btn btn-info btn-xs"><i
                                                                 class="fa fa-pencil"></i> Edit </a>
-                                                    <a href="/admin/publications/{{ $publication->id }}/deletebtn"
+                                                    <a id="{{ $publication->id  }}"
+                                                       data-href="/admin/publications/{{ $publication->id }}/deletebtn"
                                                        class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>
                                                         Delete
                                                     </a>
 
+
+                                                    <script>
+                                                        $('a#{{ $publication->id  }}').on('click', function () {
+                                                            swal({
+                                                                    title             : "Are you sure?",
+                                                                    text              : "You will not be able to recover this!",
+                                                                    type              : "warning",
+                                                                    showCancelButton  : true,
+                                                                    confirmButtonColor: "#DD6B55",
+                                                                    confirmButtonText : "Yes, delete it!",
+                                                                    closeOnConfirm    : false
+                                                                },
+                                                                function () {
+                                                                    href                 = $('#{{ $publication->id  }}').attr('data-href');
+                                                                    window.location.href = href;
+                                                                });
+                                                        })
+                                                    </script>
 
                                                 </td>
                                             </tr>

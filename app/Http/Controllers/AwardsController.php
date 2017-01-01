@@ -73,4 +73,21 @@
 
 			return back();
 		}
+
+		public function awards()
+		{
+			$projects = Project::all();
+
+			return view('admin.awards', compact('projects'));
+		}
+
+		public function AwardsCreate(Project $project)
+		{
+			return view('admin.awards-create', compact('project'));
+		}
+
+		public function AwardsEdit(Award $award)
+		{
+			return view('admin.edit-awards', compact('award'));
+		}
 	}

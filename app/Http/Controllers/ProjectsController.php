@@ -79,4 +79,52 @@
 
 			return redirect("/admin/project/{$project->id}");
 		}
+
+		public function sort()
+		{
+			$projects = Project::sorted()->get();
+
+			return view('admin.sorting', compact('projects'));
+		}
+
+		public function projects()
+		{
+			$projects = Project::sorted()->get();
+
+			return view('admin.projects', compact('projects'));
+		}
+
+		public function create()
+		{
+
+			$categories = Category::get();
+			$statuses   = Status::get();
+
+
+			return view('admin.create', compact('categories', 'statuses'));
+		}
+
+		public function createFa(Project $project)
+		{
+			return view('admin.create_fa', compact('project'));
+		}
+
+		public function show($id)
+		{
+			$project = Project::find($id);
+
+			return view('admin.show', compact('project'));
+		}
+
+		public function edit($project)
+		{
+			//			dd($project->id);
+			$project = Project::find($project);
+			$project->load('awards.photo');
+			$categories = Category::get();
+			$statuses   = Status::get();
+
+			return view('admin.edit', compact('project', 'categories', 'statuses'));
+		}
+
 	}
