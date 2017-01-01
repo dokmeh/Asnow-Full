@@ -4,6 +4,8 @@
 	Route::get('/test', 'PagesController@home');
 	Route::get('/projects', 'PagesController@projects');
 	Route::get('/events', 'PagesController@events');
+	Route::get('/projects/request', 'PagesController@request');
+	Route::post('/projects/request/create', 'RequestsController@store');
 	Route::get('/projects/{project}', 'PagesController@project');
 	Route::get('/events/{event}', 'PagesController@event');
 	Route::get('/about', 'PagesController@about');
@@ -105,6 +107,14 @@
 			Route::post('/{status}/edit', 'StatusesController@update');
 			Route::post('/create', 'StatusesController@store');
 		});
+		// Request Routes
+		Route::group(['prefix' => 'requests'], function () {
+			Route::get('/', 'AdminsController@requests');
+			Route::get('/{request}/', 'AdminsController@request');
+			Route::get('/{request}/deletebtn', 'RequestsController@destroy');
+			Route::post('/{request}/edit', 'RequestsController@update');
+		});
+
 	});
 
 	Route::post('sort', '\Rutorika\Sortable\SortableController@sort');

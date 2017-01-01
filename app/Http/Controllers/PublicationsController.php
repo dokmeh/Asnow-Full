@@ -3,6 +3,7 @@
 	namespace App\Http\Controllers;
 
 	use App\File;
+	use App\Project;
 	use App\Publication;
 	use Illuminate\Http\Request;
 
@@ -65,6 +66,12 @@
 
 		public function destroy(Publication $publication)
 		{
+			foreach ($publication->files as $file) {
+				$path = $file->path;
+				unlink(public_path($path));
+				$file->delete();
+			}
+
 			$publication->delete();
 			flash()->error('Deleted', 'Publication has been deleted.');
 

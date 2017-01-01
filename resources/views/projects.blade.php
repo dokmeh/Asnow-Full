@@ -15,7 +15,7 @@
     <div class="projects-box-container">
 
 
-        <a href="#" class="projects-box">
+        <a href="/projects/request" class="projects-box">
             <div class="projects-box-square youre-project-box">
                 <img src="/img/projects/project-1/thumb/thumb-s.jpg"
                      data-src="/img/projects/project-1/thumb/thumb-s.jpg"

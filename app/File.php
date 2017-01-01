@@ -7,11 +7,10 @@
 	class File extends Model {
 		protected $fillable = [
 			'path',
-			'publication_id',
 		];
 
-		public function publication()
+		public function fileable()
 		{
-			$this->belongsTo(Publication::class);
+			return $this->morphTo();
 		}
 	}

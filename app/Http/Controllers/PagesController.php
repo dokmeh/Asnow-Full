@@ -54,6 +54,17 @@
 
 		}
 
+		public function request(Request $request)
+		{
+			$page    = 'project';
+			$content = view('request');
+			if ($request->ajax()) {
+				return $content;
+			} else {
+				return view('layout', compact('page', 'content'));
+			}
+		}
+
 		public function project(Request $request, $id)
 		{
 			$page    = 'project';

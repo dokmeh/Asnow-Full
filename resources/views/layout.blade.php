@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="_token" content="{{ csrf_token() }}"/>
-    <title>Aznow</title>
+    <title>Asnow</title>
     <base href="{{ url('/') }}">
     <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
     <script src="{{ elixir('js/all.js') }}"></script>

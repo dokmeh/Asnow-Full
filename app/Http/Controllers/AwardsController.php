@@ -36,6 +36,10 @@
 
 		public function destroy(Award $award)
 		{
+			$photo = $award->photo;
+			$path  = $photo->image;
+			unlink(public_path($path));
+			$photo->delete();
 			$award->delete();
 			flash()->error('Deleted', 'Award has been Deleted');
 

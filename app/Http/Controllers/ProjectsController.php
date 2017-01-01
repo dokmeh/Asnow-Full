@@ -2,8 +2,10 @@
 
 	namespace App\Http\Controllers;
 
+	use App\Category;
 	use App\Photo;
 	use App\Project;
+	use App\Status;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Facades\Storage;
 
@@ -50,10 +52,20 @@
 		public function destroy(Project $project)
 		{
 
+			foreach ($project->photos as $photo) {
+				$path = $photo->image;
+				unlink(public_path($path));
+				$photo->delete();
+			}
 
-			flash()->delete('Deleted', 'The Project has been deleted.');
+			foreach ($project->thumbnails as $thumbnail) {
+				$path = $thumbnail->thumbnail_path;
+				unlink(public_path($path));
+				$thumbnail->delete();
+			}
 
 			$project->delete();
+			flash()->warning('Deleted', 'The Project has been deleted.');
 
 
 			return redirect('/admin/');

@@ -61,7 +61,7 @@
             </form>
 
             <div class="separator">
-                <p class="change_link">Aznow Panel Login
+                <p class="change_link">Asnow Panel Login
                 </p>
 
                 <div class="clearfix"></div>

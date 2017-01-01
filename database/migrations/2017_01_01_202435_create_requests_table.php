@@ -4,7 +4,7 @@
 	use Illuminate\Database\Schema\Blueprint;
 	use Illuminate\Database\Migrations\Migration;
 
-	class CreateFilesTable extends Migration {
+	class CreateRequestsTable extends Migration {
 		/**
 		 * Run the migrations.
 		 *
@@ -12,11 +12,12 @@
 		 */
 		public function up()
 		{
-			Schema::create('files', function (Blueprint $table) {
+			Schema::create('requests', function (Blueprint $table) {
 				$table->increments('id');
-				$table->string('path');
-				$table->integer('fileable_id');
-				$table->string('fileable_type');
+				$table->string('request_type');
+				$table->string('name');
+				$table->text('other_request')->nullable();
+				$table->integer('phone');
 				$table->timestamps();
 			});
 		}
@@ -28,6 +29,6 @@
 		 */
 		public function down()
 		{
-			Schema::dropIfExists('files');
+			Schema::dropIfExists('requests');
 		}
 	}

@@ -51,6 +51,17 @@
 
 		public function destroy(Event $event)
 		{
+			foreach ($event->photos as $photo) {
+				$path = $photo->image;
+				unlink(public_path($path));
+				$photo->delete();
+			}
+
+			$thumbnail = $event->thumbnail;
+			$path      = $thumbnail->thumbnail_path;
+			unlink(public_path($path));
+			$thumbnail->delete();
+
 
 			$event->delete();
 			flash()->delete('Deleted', 'The Event has been Deleted.');
