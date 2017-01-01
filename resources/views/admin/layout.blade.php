@@ -82,6 +82,17 @@
 
         /** forms */
     </style>
+    <!-- scripts-->
+    <script src="/gentelella/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/admin/jquery-ui.js"></script>
+    <script src="/js/admin/tether.js"></script>
+    {{--<script src="/js/admin/bootstrap-4.js"></script>--}}
+    <script src="/js/admin/bootstrap-select.js"></script>
+    <script src="/js/admin/bootstrap-switch.js"></script>
+    <script src="/js/admin/bootstrap-growl.js"></script>
+    <script src="/gentelella/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- /scripts-->
 </head>
 <body class="nav-md">
 <div class="container body">
@@ -231,17 +242,7 @@
             </div>
         </div>
         <!-- /top navigation -->
-        <!-- scripts-->
-        <script src="/gentelella/vendors/jquery/dist/jquery.min.js"></script>
-        <script src="/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="/js/admin/jquery-ui.js"></script>
-        <script src="/js/admin/tether.js"></script>
-        {{--<script src="/js/admin/bootstrap-4.js"></script>--}}
-        <script src="/js/admin/bootstrap-select.js"></script>
-        <script src="/js/admin/bootstrap-switch.js"></script>
-        <script src="/js/admin/bootstrap-growl.js"></script>
-        <script src="/gentelella/vendors/switchery/dist/switchery.min.js"></script>
-        <!-- /scripts-->
+
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -262,7 +263,14 @@
         <!-- /footer content -->
     </div>
 </div>
+<script src="/gentelella/vendors/fastclick/lib/fastclick.js"></script>
+<script src="/gentelella/vendors/nprogress/nprogress.js"></script>
 
+<script src="/gentelella/vendors/DateJS/build/date.js"></script>
+
+<script src="/gentelella/vendors/moment/min/moment.min.js"></script>
+<script src="/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="/gentelella/build/js/custom.min.js"></script>
 
 <script src="/js/admin/dropzone.js"></script>
 <script src="/js/admin/sweetalert.js"></script>
