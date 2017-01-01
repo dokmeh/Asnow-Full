@@ -1,11 +1,9 @@
 @extends('admin.layout')
 @section('content')
-
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Requests
-                </h3>
+                <h3>Requests</h3>
             </div>
 
             <div class="title_right">
@@ -23,7 +21,7 @@
         <div class="clearfix"></div>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Requests</h2>
@@ -45,11 +43,11 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-                    @if (count($requests) > 0 )
 
-                        <div class="x_content">
+                    <div class="x_content">
+                        @if (count($requests) > 0 )
 
-                            <p>Simple table with event listing with progress and editing options</p>
+                            <p>Requests from clients</p>
 
                             <!-- start event list -->
                             <table class="table table-striped projects">
@@ -142,16 +140,14 @@
                                 </tbody>
                             </table>
                             <!-- end event list -->
-                            @else
-                                <h2 class="text-center">There is no request.</h2>
+                        @else
+                            <h2 class="text-center">There is no request.</h2>
 
-                        </div>
+                    </div>
                     @endif
-
                 </div>
             </div>
         </div>
     </div>
-
-
+    </div>
 @stop
