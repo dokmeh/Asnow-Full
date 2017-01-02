@@ -58,7 +58,7 @@
                                     <th style="width: 1%">#</th>
                                     <th style="width: 20%">Event Name</th>
                                     <th>Thumbnail</th>
-                                    <th>Date</th>
+                                    <th>Datetime</th>
                                     <th>Visibility</th>
                                     <th style="width: 20%">#Edit</th>
                                 </tr>
