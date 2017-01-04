@@ -3,6 +3,7 @@
 /storage/*.key
 /vendor
 /.idea
+/database/database.sqlite
 Homestead.json
 Homestead.yaml
 .phpstorm.meta.php

@@ -1,41 +1,12 @@
 <!DOCTYPE html>
 <html>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-<script>
-    $(window).load(function () {
-        // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");
 
-    });
-</script>
-<style>
-    .no-js #loader { display : none; }
-
-    .js #loader { display : block; position : absolute; left : 100px; top : 0; }
-
-    .se-pre-con {
-        position   : fixed;
-        left       : 0px;
-        top        : 0px;
-        width      : 100%;
-        height     : 100%;
-        z-index    : 9999;
-        background : url('/img/Preloader_2.gif') center no-repeat #fff;
-        }
-</style>
-<div class="se-pre-con"></div>
-<script>
-    window.onload = function () {
-        // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");
-
-    };
-</script>
 <head>
+
+
     <title>Asnow - Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    {{--<meta name="csrf-token" content="{{ csrf_token() }}"/>--}}
     <link href="/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -245,7 +216,7 @@
 
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" id="pjax-container">
 
 
             @yield('content')
@@ -278,6 +249,11 @@
 <script src="/gentelella/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
 <script src="/gentelella/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
 <script src="/gentelella/vendors/google-code-prettify/src/prettify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+<script>
+    navlink = $('#sidebar-menu').find('a')
+    $(document).pjax('#sidebar-menu a', '#pjax-container')
+</script>
 <script>
     $(document).ready(function () {
         $('.datetime').daterangepicker({
