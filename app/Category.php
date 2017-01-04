@@ -14,4 +14,9 @@
 		{
 			return $this->hasMany(Project::class);
 		}
+
+		public function cooperators()
+		{
+			return $this->hasMany(Cooperator::class);
+		}
 	}

@@ -9,7 +9,6 @@
 		use SortableTrait;
 		//		use MorphToSortedManyTrait;
 
-		protected static $sortableField = 'sort';
 
 		protected $fillable = [
 			'title',
@@ -25,7 +24,7 @@
 			'completed_at',
 			'site_area',
 			'floor_area',
-			'sort',
+			'position',
 			'category_id',
 			'status_id',
 		];
@@ -58,6 +57,11 @@
 		public function publications()
 		{
 			return $this->hasMany(Publication::class);
+		}
+
+		public function client()
+		{
+			return $this->belongsTo(Client::class);
 		}
 
 	}

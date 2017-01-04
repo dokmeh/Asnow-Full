@@ -53,7 +53,7 @@
                                     <tbody class="sortable" data-entityname="projects">
                                     @foreach ($projects as $project)
                                         <tr class="even pointer" data-itemId="{{ $project->id }}">
-                                            <td class="sortable-handle"><span class="fa fa-bars fa-2x"
+                                            <td class="sortable-handle"><span class="fa fa-sort fa-2x"
                                                                               aria-hidden="true"></span>
                                             </td>
                                             <td class="id-column">{{ $project->id }}</td>

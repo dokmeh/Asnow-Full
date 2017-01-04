@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-
     <title>Asnow - Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{--<meta name="csrf-token" content="{{ csrf_token() }}"/>--}}
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link href="/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -108,10 +105,12 @@
 
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-newspaper-o"></i> Publications <span
+                            <li><a><i class="fa fa-newspaper-o"></i> Cooperators <span
                                             class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/publications">All Publications</a></li>
+                                    <li><a href="/admin/publications">All Cooperators</a></li>
+                                    <li><a href="/admin/publications">Create Cooperator</a></li>
+                                    <li><a href="/admin/publications">Sort Cooperators</a></li>
 
                                 </ul>
                             </li>
