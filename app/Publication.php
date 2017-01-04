@@ -8,7 +8,6 @@
 
 	class Publication extends Model {
 		use SortableTrait;
-		protected static $sortableField = 'sort';
 
 		protected $fillable = [
 			'name',
@@ -16,7 +15,7 @@
 			'description',
 			'visible',
 			'description_fa',
-			'sort',
+			'position',
 			'project_id',
 		];
 
