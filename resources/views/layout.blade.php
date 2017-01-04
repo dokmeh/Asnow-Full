@@ -5,8 +5,14 @@
     <meta name="_token" content="{{ csrf_token() }}"/>
     <title>Asnow</title>
     <base href="{{ url('/') }}">
-    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
-    <script src="{{ elixir('js/all.js') }}"></script>
+<!--    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
+    <script src="{{ elixir('js/all.js') }}"></script>-->
+<link rel="stylesheet" href="/css/reset.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="js/jquery-new.js"></script>
+<script src="js/jquery.imageloader.js"></script>
+<script src="js/jquery.touchSwipe.min.js"></script>
+<script src="js/perfect-scrollbar.min.js"></script>
     {{--<link rel="stylesheet" type="text/css" href="css/reset.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="css/style.css">--}}
     {{--<script src="js/jquery.min.js"></script>--}}
