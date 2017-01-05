@@ -218,7 +218,7 @@ html, body {
 	}
 
 .linehand nav ul li:hover span.line {
-/ / height: 120 %;
+    /*height: 120 %;*/
 	}
 
 .linehand nav ul li span.line {
@@ -435,10 +435,10 @@ body.fa a:after, body.fa p:after {
 	}
 
 .linehand nav ul li.li-clicked.li-open span {
-/ / width: 200 vw;
+        /*width: 200 vw;*/
 	background : #ccc;
 	z-index    : 1000;
-	}
+}
 
 .loading {
 	position           : absolute;

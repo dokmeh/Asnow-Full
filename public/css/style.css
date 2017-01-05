@@ -17,18 +17,44 @@ html,body {
     /* filter: invert(100%); */
 }
 
+.back-but {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    top: 60px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 130;
+}
+.back-but .mile:nth-child(1){
+    transform: rotate(45deg) translateY(-7px) translateX(0px);
+    height: 100%;
+}
+.back-but .mile:nth-child(2){
+    display: none;
+}
+.back-but .mile:nth-child(3){
+    transform: rotate(-45deg) translateY(6px) translateX(-13px);
+    height: 100%;
+}
+.back-but:hover {
+    background: #555;
+
+}
+
 .menu-but {
     position: absolute;
     width: 40px;
     height: 40px;
-    background: #616161;
+    background: #ccc;
     top: 10px;
     left: 10px;
     cursor: pointer;
     z-index: 130;
 }
 .menu-but:hover {
-    background: #ccc;
+    background: #555;
 
 }
 
@@ -215,9 +241,9 @@ html,body {
     letter-spacing: normal;
 }
 
-.linehand nav ul li:hover span.line {
-    //height: 120%;
-}
+/*.linehand nav ul li:hover span.line {
+    height: 120%;
+}*/
 
 .linehand nav ul li span.line {
     width: 1px;
@@ -321,8 +347,8 @@ li.li-clicked.li-open {
     transform: translateX(-50%);
     background-color: #ffffff;
     cursor: pointer;
-    -webkit-transition: 300ms 200ms ease;
-    transition: 300ms 200ms ease;
+    -webkit-transition: 60ms 40ms ease;
+    transition: 60ms 40ms ease;
     -webkit-transition-property: width, top, bottom, height, -webkit-transform;
     transition-property: width, top, bottom, height, -webkit-transform;
     transition-property: width, transform, top, bottom, height;
@@ -443,7 +469,7 @@ section.fa p:after,body.fa a:after {
 }
 
 .linehand nav ul li.li-clicked.li-open span {
-    //width: 200vw;
+    /*width: 200vw;*/
     background: #ccc;
     z-index: 1000;
 }
@@ -516,10 +542,11 @@ section.fa p:after,body.fa a:after {
 
 .enter-line-h span {
     height: 100%;
-    width: calc(20% + 2px);
+    /*width: calc(20% + 2px);*/
+    width: 100%;
     margin: -1px;
     background: #000;
-    -webkit-transition: 1s ease all;
+/*    -webkit-transition: 1s ease all;
     transition: 1s ease all;
     position: relative;
     -webkit-transform-origin: center center 0px;
@@ -527,7 +554,7 @@ section.fa p:after,body.fa a:after {
     -webkit-perspective: 100px;
     perspective: 100px;
     -webkit-animation: anim2 2s ease;
-    animation: anim2 2s ease;
+    animation: anim2 2s ease;*/
 }
 
 @keyframes anim1 {
@@ -1300,7 +1327,7 @@ a.projects-box:hover {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    display: block;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -1314,11 +1341,18 @@ a.projects-box:hover {
 }
 
 .project-arrow {
+    position: absolute;
     height: 35px;
     width: 20px;
     z-index: 10;
     padding: 0 20px;
     cursor: pointer;
+    top: 50%;
+    transform:translateY(-50%);
+}
+
+.project-arrow.next {
+    right: 1%;
 }
 
 .switch-bt {
@@ -1338,7 +1372,7 @@ a.projects-box:hover {
 }
 
 .switch-bt:hover>div{
-    background-color: #222;
+    background-color: #555;
 }
 
 .open-t-bt {
@@ -1360,14 +1394,21 @@ a.projects-box:hover {
     backface-visibility: hidden;
 }
 .open-t-bt:hover{
+    transition: none;
     background-color:#000;
 }
 .open-t-bt.close-bt {
 }
 
 .switch-bt.switch-bt-c .open-t-bt.close-bt {
+    transition: none;
     opacity: 1;
-    background-color: #222;
+    background-color: #ccc;
+}
+
+.switch-bt.switch-bt-c .open-t-bt.close-bt:hover {
+    transition: none;
+    background-color: #555;
 }
 
 .open-t-bt.close-bt img {
@@ -1415,7 +1456,7 @@ a.projects-box:hover {
 
 .texts-masks.backface {
     position: absolute;
-    width: calc(100% - 40px);
+    width: calc(100% - 70px);
     z-index: 10;
     background: #fff;
     -webkit-transition: 400ms ease all;
@@ -1433,12 +1474,12 @@ a.projects-box:hover {
     transform: rotateY(180deg);
     background: #fff;
     z-index: 0;
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    -webkit-column-gap: 1em;
-    -moz-column-gap: 1em;
-    column-gap: 1em;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 0.5em;
+    -moz-column-gap: 0.5em;
+    column-gap: 0.5em;
     opacity: 0;
     height: 0;
 }
@@ -1452,11 +1493,13 @@ a.projects-box:hover {
     filter: grayscale(80%);
     -webkit-transition: 500ms ease all;
     transition: 500ms ease all;
+    opacity: 0.5;
 }
 
 .project-img-box-t:hover {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
+    opacity: 1;
 }
 
 .project-img-box-t img {
@@ -1537,15 +1580,15 @@ a.projects-box.projects-box-hide {
     opacity: 1;
 }
 
-.arrow.fullscreen img:last-of-type, .arrow.slideshow img:last-of-type {
+.arrow.slideshow img:last-of-type {
     opacity: 0;
 }
 
-.arrow.fullscreen.op img:first-of-type, .arrow.slideshow.op img:first-of-type {
+.arrow.slideshow.op img:first-of-type {
     opacity: 0;
 }
 
-.arrow.fullscreen.op img:last-of-type, .arrow.slideshow.op img:last-of-type {
+.arrow.slideshow.op img:last-of-type {
     opacity: 1;
 }
 
@@ -1704,12 +1747,12 @@ a.events-box:hover .inner-rotate {
 }
 
 a.events-box:hover p.event-title {
-    background-color: #000;
+    background-color: #555;
     color: #fff;
 }
 
 .contact-container {
-    width: 90vw;
+    width: 30vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1717,24 +1760,66 @@ a.events-box:hover p.event-title {
     align-items: flex-end;
     font-size: 12px;
     line-height: 19px;
+    float: right;
 }
 
 .logo-h {
-    position: relative;
-    width: 130px;
-    margin-bottom: 50px;
+    position: absolute;
+    
+    width: 9%;
+    padding: 0.5%;
+    
+    right: 0;
+    
+    top: 50%;
+    transform:translateY(-50%);
 }
 
 .infos {
-    width: 130px;
+    position: absolute;
+    
+    width: 18%;
+    padding: 1%;
+    
+    right: 10%;
+    
+    top: 50%;
+    transform:translateY(-50%);
     text-align: justify;
 }
 
 .infos a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
-    background: #000;
     padding: 1px 2px;
+}
+
+.infos > div {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.infos > div:nth-of-type(2) {
+    margin-bottom: 50px;
+}
+
+.infos > div:last-of-type {
+    margin-top: 20px;
+}
+
+.infos > div > div.inf-title {
+    text-align: right;
+    width: 30%;
+    float: left;
+    font-weight: bold;
+}
+
+.infos > div > div {
+    float: right;
+    width: 65%;
+    margin: 1px 0;
+    text-align: left;
 }
 
 img.insta {
@@ -1746,7 +1831,7 @@ a.insta {
     padding: 0;
 }
 
-.inner-menu-bt {
+.inner-menu-bt, .inner-back-bt {
     position: absolute;
     height: inherit;
     width: 50%;
