@@ -257,7 +257,8 @@
                                             </div>
                                         </div>
 
-                                        <a href="/admin/project/create" class="btn btn-primary">Cancel</a>
+                                        <a href="/admin/project/{{$project->id}}/edit"
+                                           class="btn btn-primary">Cancel</a>
                                         <button type="submit" id="submit" value="submit" class="btn btn-success">
                                             Save
                                         </button>
@@ -302,8 +303,28 @@
                                             <p>{{ $photo->name }}</p>
                                             <div class="tools tools-bottom">
 
-                                                <a href="/admin/project/photo/{{ $photo->id }}/deletebtn"><i
+                                                <a id="{{ $photo->id  }}"
+                                                   data-href="/admin/cooperators/photo/{{ $photo->id }}/deletebtn"><i
                                                             class="fa fa-times"></i></a>
+
+
+                                                <script>
+                                                    $('a#{{ $photo->id   }}').on('click', function () {
+                                                        swal({
+                                                                title             : "Are you sure?",
+                                                                text              : "You will not be able to recover this!",
+                                                                type              : "warning",
+                                                                showCancelButton  : true,
+                                                                confirmButtonColor: "#DD6B55",
+                                                                confirmButtonText : "Yes, delete it!",
+                                                                closeOnConfirm    : false
+                                                            },
+                                                            function () {
+                                                                href                 = $('#{{ $photo->id   }}').attr('data-href');
+                                                                window.location.href = href;
+                                                            });
+                                                    })
+                                                </script>
                                             </div>
                                         </div>
                                     </div>

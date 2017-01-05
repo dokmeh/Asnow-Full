@@ -18,8 +18,8 @@
 				$table->string('title_fa')->nullable();
 				$table->string('location');
 				$table->string('location_fa')->nullable();
-				$table->string('client');
-				$table->string('client_fa')->nullable();
+				$table->string('clientname')->nullable();
+				$table->string('clientname_fa')->nullable();
 				$table->text('description');
 				$table->text('description_fa')->nullable();
 				$table->string('design_at');

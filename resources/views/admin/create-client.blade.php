@@ -3,7 +3,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Create Client</h3>
+                <h3>Categories</h3>
             </div>
 
             <div class="title_right">
@@ -17,15 +17,14 @@
                 </div>
             </div>
         </div>
+
         <div class="clearfix"></div>
+
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-
-                        <h2>Create Form
-
-                        </h2>
+                        <h2>List of Categories:</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -44,101 +43,75 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-
                     <div class="x_content">
-                        <br/>
-                        <form id="demo-form2" action="/admin/project/{{ $project->id }}/awards" method="POST"
-                              data-parsley-validate
-                              class="form-horizontal form-label-left" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="visible" value="0">
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Award's Name:
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" name="name" required="required"
-                                           class="form-control col-md-7 col-xs-12">
+
+                        <div>@foreach ($clients as $client)
+
+                                <div class="dropdown">
+                                    <a href="#"><h4 type="button"
+                                                    data-toggle="collapse"
+                                                    data-target="#{{ $client->id }}">{{ $client->name }}
+                                            <span
+                                                    class="fa fa-chevron-down"></span></h4></a>
+                                    <ul id="{{ $client->id }}" class="collapse">
+
+                                        <form action="/admin/client/{{ $client->id }}/edit" method="POST" enctype="multipart/form-data">
+                                            {{ csrf_field() }}
+                                            <input type="text" name="name" value="{{ $client->name }}"
+                                                   placeholder="{{ $client->name }}">
+
+                                            <input type="text" name="name_fa" value="{{ $client->name_fa }}"
+                                                   placeholder="{{ $client->name_fa }}">
+                                            <input type="url" name="url" value="{{ $client->url }}"
+                                                   placeholder="{{ $client->url }}">&nbsp;
+                                            @if (count($client->thumbnail) > 0)
+                                                <img
+                                                        class="avatar" src="{{ $client->thumbnail->thumbnail_path }}"
+                                                        alt="">
+                                            @else <br>
+                                            <small>Add Thumbnail</small>
+                                            <input type="file" placeholder="Website" name="file"><br>
+
+                                            @endif
+                                            <div class="btn-group">
+                                                <button type="submit" class="btn btn-primary btn-xs">Update</button>
+                                                <a href="/admin/client/{{ $client->id }}/deletebtn"
+                                                   class="btn btn-danger btn-xs">Delete</a>
+                                                @if (count($client->thumbnail) > 0)
+                                                    <a class="btn btn-warning btn-xs"
+                                                       href="/admin/client/thumbnail/{{  $client->thumbnail->id
+                                                    }}/deletebtn">Delete Thumbnail</a>
+                                                @endif</div>
+
+                                        </form>
+
+                                    </ul>
                                 </div>
-                            </div>
 
+                            @endforeach
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="row">
+                            <form action="/admin/client/create" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="English Name" name="name" class="form-control"><br>
+                                    <input type="text" placeholder="نام به فارسی" name="name_fa"
+                                           class="form-control"><br>
+                                    <input type="url" placeholder="Website" name="url" class="form-control">
+                                    <br>
+                                    Thumbnail:
+                                    <input type="file" placeholder="Website" name="file" class="form-control">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Save</button>
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نام جایزه:
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name_fa" name="name_fa" required="required"
-                                           class="form-control col-md-7 col-xs-12">
                                 </div>
-                            </div>
 
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Award's Icon:
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="file" id="file" name="file" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Date: <span
-                                            class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input name="date" id="birthday"
-                                           class="date-picker datetime form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Description: <span
-                                            class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-
-                                    <textarea type="hidden" name="description" title="description" id="description"
-                                              style="display:block;"></textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">توضیحات: <span
-                                            class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-
-                                    <textarea type="hidden" name="description_fa" title="description" id="description"
-                                              style="display:block;"></textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <a href="/admin/project/{{ $project->id }}/publications/create"
-                                       class="btn btn-primary">Cancel</a>
-                                    <button type="submit" id="submit" value="submit" class="btn btn-success">Submit
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 @stop

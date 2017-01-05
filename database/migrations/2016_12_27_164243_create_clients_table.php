@@ -15,6 +15,7 @@
 			Schema::create('clients', function (Blueprint $table) {
 				$table->increments('id');
 				$table->string('name');
+				$table->string('name_fa');
 				$table->longText('url');
 				$table->timestamps();
 			});

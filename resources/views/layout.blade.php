@@ -90,7 +90,6 @@
     </div>
 </div>
 <section class="inner-ajax" id="pjax">
-
     {!! $content !!}
 </section>
 <!--        <img class="menu-but" src="img/menu-icon.svg">-->

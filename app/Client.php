@@ -6,6 +6,12 @@
 
 	class Client extends Model {
 
+		protected $fillable = [
+			'name',
+			'name_fa',
+			'url',
+		];
+
 		public function project()
 		{
 			return $this->hasMany(Project::class);

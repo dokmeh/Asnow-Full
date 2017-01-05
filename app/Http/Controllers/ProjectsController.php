@@ -3,6 +3,7 @@
 	namespace App\Http\Controllers;
 
 	use App\Category;
+	use App\Client;
 	use App\Photo;
 	use App\Project;
 	use App\Status;
@@ -111,9 +112,10 @@
 
 			$categories = Category::get();
 			$statuses   = Status::get();
+			$clients    = Client::get();
 
 
-			return view('admin.create', compact('categories', 'statuses'));
+			return view('admin.create', compact('categories', 'statuses', 'clients'));
 		}
 
 		public function createFa(Project $project)

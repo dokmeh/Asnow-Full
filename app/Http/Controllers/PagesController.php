@@ -11,20 +11,26 @@
 
 	class PagesController extends Controller {
 
-		public function home()
+		public function home(Request $request)
 		{
 			$page    = 'home';
-			$content = NULL;
-
-			return view('home', compact('page', 'content'));
+			$content = view('home');
+			if ($request->ajax()) {
+				return $content;
+			} else {
+				return view('layout', compact('page', 'content'));
+			}
 		}
 
-		public function home_fa()
+		public function home_fa(Request $request)
 		{
 			$page    = 'home';
-			$content = NULL;
-
-			return view('home_fa', compact('page', 'content'));
+			$content = view('home_fa');
+			if ($request->ajax()) {
+				return $content;
+			} else {
+				return view('layout_fa', compact('page', 'content'));
+			}
 		}
 
 		public function projects(Request $request)

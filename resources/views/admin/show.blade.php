@@ -129,7 +129,7 @@
                                                               data-icon=""></span>
                                                         <a href="/admin/publications/{{ $publication->id }}/edit"><i
                                                                     class="fa fa-paperclip"></i> Edit This
-                                                                                                 Publication
+                                                            Publication
                                                         </a>
                                                     </p>
                                                 </div>
@@ -163,7 +163,12 @@
                                     <div class="project_detail">
 
                                         <p class="title">Client Company</p>
-                                        <p>{{ $project->client }}</p>
+                                        @if (count($project->client) > 0)
+                                            <p>{{ $project->client->name }}</p>
+                                        @else
+                                            <p>{{ $project->clientname }}</p>
+                                        @endif
+
                                         <p class="title">Project Location</p>
                                         <p>{{ $project->location }}</p>
 
@@ -191,15 +196,15 @@
                                                 Design Date: {{ $project->design_at }}</a>
                                         </li>
                                         <li><a href=""><i class="fa fa-file-pdf-o"></i> Completed
-                                                                                        Date: {{ $project->completed_at }}
+                                                Date: {{ $project->completed_at }}
                                             </a>
                                         </li>
                                         <li><a href=""><i class="fa fa-mail-forward"></i> Site
-                                                                                          Area: {{ $project->site_area }}
+                                                Area: {{ $project->site_area }}
                                             </a>
                                         </li>
                                         <li><a href=""><i class="fa fa-picture-o"></i> Floor
-                                                                                       Area: {{ $project->floor_area }}
+                                                Area: {{ $project->floor_area }}
                                             </a>
                                         </li>
                                         <li><a href=""><i class="fa fa-file-word-o"></i>

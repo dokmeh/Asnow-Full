@@ -105,12 +105,12 @@
 
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-newspaper-o"></i> Cooperators <span
+                            <li><a><i class="fa fa-sitemap"></i> Cooperators <span
                                             class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/publications">All Cooperators</a></li>
-                                    <li><a href="/admin/publications">Create Cooperator</a></li>
-                                    <li><a href="/admin/publications">Sort Cooperators</a></li>
+                                    <li><a href="/admin/cooperators">All Cooperators</a></li>
+                                    <li><a href="/admin/cooperators/create">Create Cooperator</a></li>
+                                    <li><a href="/admin/cooperators/sort">Sort Cooperators</a></li>
 
                                 </ul>
                             </li>

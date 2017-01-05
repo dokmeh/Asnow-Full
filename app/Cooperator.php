@@ -3,14 +3,18 @@
 	namespace App;
 
 	use Illuminate\Database\Eloquent\Model;
+	use Rutorika\Sortable\SortableTrait;
 
 	class Cooperator extends Model {
+		use SortableTrait;
+
 		protected $fillable = [
 			'title',
 			'title_fa',
 			'url',
 			'visible',
 			'position',
+			'category_id',
 		];
 
 		public function category()

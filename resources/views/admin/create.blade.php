@@ -71,15 +71,67 @@
                                                class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="client" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                    <label id="client-label" for="client" class="control-label col-md-3 col-sm-3 col-xs-12">
                                         Client:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="client" class="form-control  col-md-7 col-xs-12" type="text"
-                                               name="client">
+                                        <input id="client-input" id="client" class="form-control  col-md-7 col-xs-12" type="text"
+                                               name="clientname">
+                                        <p class="text-danger">Or Select From Clients List:</p>
+                                        <a id="open" class="btn btn-primary btn-xs">Open</a>
+                                        <a id="close" class="btn btn-danger btn-xs">Close</a>
                                     </div>
                                 </div>
 
+
+                                <div id="client-select">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client">Clients:
+                                            <span
+                                                    class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select id="client" name="client_id" class="form-control">
+                                                <option>Select A Client</option>
+
+                                                @foreach ($clients as $client)
+
+                                                    <option value="{{ $client->id }}">{{ $client->name }}</option>
+                                                @endforeach
+
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <script>
+
+                                    $('#client-select').hide();
+                                    $('#client-input').show();
+                                    $('#close').hide();
+
+                                    $('#open').click(function () {
+                                        $('#client-select').show();
+                                        $('#close').show();
+                                        $('#open').hide();
+                                        $('#client-input').hide();
+
+
+                                    })
+
+                                    $('#close').click(function () {
+                                        $('#client-select').hide();
+                                        $('#open').show();
+                                        $('#close').hide();
+                                        $('#client-input').show();
+
+                                    })
+
+                                </script>
+
+                                <br>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Design At: <span
                                                 class="required">*</span>
@@ -106,7 +158,7 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="floor-area">Floor
-                                                                                                              Area:
+                                        Area:
                                         <span
                                                 class="required">*</span>
                                     </label>
@@ -153,7 +205,6 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <select id="status" name="status_id" class="form-control">
                                             @foreach ($statuses as $status)
-
                                                 <option value="{{ $status->id }}">{{ $status->name }}</option>
                                             @endforeach
 
@@ -172,7 +223,6 @@
                                               style="display:block;"></textarea>
                                     </div>
                                 </div>
-
 
 
                                 <div class="form-group">
@@ -199,7 +249,7 @@
                                         کارفرما:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input id="client" class="form-control  col-md-7 col-xs-12" type="text"
-                                               name="client_fa">
+                                               name="clientname_fa">
                                     </div>
                                 </div>
 
