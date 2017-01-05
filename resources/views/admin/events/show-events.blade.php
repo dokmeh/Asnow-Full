@@ -49,22 +49,16 @@
                     <div class="x_content">
 
                         <div class="col-md-7 col-sm-7 col-xs-12">
-                            <div class="product-image">
-                                <img src="images/prod-1.jpg" alt="..."/>
-                            </div>
+
                             <div class="product_gallery">
-                                <a>
-                                    <img src="images/prod-2.jpg" alt="..."/>
-                                </a>
-                                <a>
-                                    <img src="images/prod-3.jpg" alt="..."/>
-                                </a>
-                                <a>
-                                    <img src="images/prod-4.jpg" alt="..."/>
-                                </a>
-                                <a>
-                                    <img src="images/prod-5.jpg" alt="..."/>
-                                </a>
+                                @foreach ($event->photos as $photo)
+
+                                    <a>
+                                        <img src="{{ $photo->image }}" alt="..."/>
+                                    </a>
+                                @endforeach
+
+
                             </div>
                         </div>
 

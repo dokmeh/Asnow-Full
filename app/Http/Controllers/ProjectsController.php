@@ -97,14 +97,14 @@
 		{
 			$projects = Project::sorted()->get();
 
-			return view('admin.sorting', compact('projects'));
+			return view('admin.projects.sorting', compact('projects'));
 		}
 
 		public function projects()
 		{
 			$projects = Project::sorted()->get();
 
-			return view('admin.projects', compact('projects'));
+			return view('admin.projects.projects', compact('projects'));
 		}
 
 		public function create()
@@ -115,19 +115,19 @@
 			$clients    = Client::get();
 
 
-			return view('admin.create', compact('categories', 'statuses', 'clients'));
+			return view('admin.projects.create', compact('categories', 'statuses', 'clients'));
 		}
 
 		public function createFa(Project $project)
 		{
-			return view('admin.create_fa', compact('project'));
+			return view('admin.projects.create_fa', compact('project'));
 		}
 
 		public function show($id)
 		{
 			$project = Project::find($id);
 
-			return view('admin.show', compact('project'));
+			return view('admin.projects.show', compact('project'));
 		}
 
 		public function edit($project)
@@ -138,7 +138,7 @@
 			$categories = Category::get();
 			$statuses   = Status::get();
 
-			return view('admin.edit', compact('project', 'categories', 'statuses'));
+			return view('admin.projects.edit', compact('project', 'categories', 'statuses'));
 		}
 
 	}

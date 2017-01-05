@@ -107,7 +107,6 @@
     </div>
 </div>
 
-{{--@include('partials.scripts', [$page => $page])--}}
 
 </body>
 </html>

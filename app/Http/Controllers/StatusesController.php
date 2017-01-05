@@ -32,7 +32,7 @@
 		{
 			$statuses = Status::all();
 
-			return view('admin.create-status', compact('statuses'));
+			return view('admin.statuses.create-status', compact('statuses'));
 		}
 
 	}

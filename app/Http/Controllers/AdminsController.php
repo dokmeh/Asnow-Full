@@ -40,16 +40,6 @@
 			return view('admin.register');
 		}
 
-		public function requests()
-		{
-			$requests = Requests::all();
 
-			return view('admin.requests', compact('requests'));
-		}
-
-		public function request(\App\Request $request)
-		{
-			return view('admin.show-request', compact('request'));
-		}
 
 	}

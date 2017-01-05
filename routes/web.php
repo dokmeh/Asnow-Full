@@ -109,8 +109,8 @@
 		});
 		// Request Routes
 		Route::group(['prefix' => 'requests'], function () {
-			Route::get('/', 'AdminsController@requests');
-			Route::get('/{request}/', 'AdminsController@request');
+			Route::get('/', 'RequestsController@requests');
+			Route::get('/{request}/', 'RequestsController@request');
 			Route::get('/{request}/deletebtn', 'RequestsController@destroy');
 			Route::post('/{request}/edit', 'RequestsController@update');
 		});
