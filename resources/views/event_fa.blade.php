@@ -18,6 +18,7 @@
 </div>
 <script>
     $(document).ready(function () {
+        event();
         $('.event-img').imageloader({
             callback: function (ele) {
                 $(ele).addClass('loaded');

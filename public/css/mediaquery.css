@@ -1,0 +1,123 @@
+/* tablet */
+@media only screen and (max-width : 991px) {
+    
+}
+
+/* mobile */
+@media only screen and (max-width : 767px) {
+    /* home */
+    .linehand.l-3-s ul a {
+        font-size: 1.4em;
+    }
+    .lng-bar {
+        right: 0vw;
+    }
+
+    /* about */
+    .about-row {
+        display: block;
+        height: auto;
+        margin: 30px 0 20px 10%;
+        width: 100%;
+    }
+    .about-text-container {
+        margin: 0;
+        width: 90%;
+        padding: 0 20px;
+    }
+    .about-box-container {
+        margin: 0;
+        width: 90%;
+        padding: 0 20px;
+        display: block;
+        transform: translateY(0);
+    }
+    .about-h, .member-h {
+        font-size: 40px;
+        padding: 20px 0;
+        width: 100%;
+        text-align: left;
+        height: auto;
+        display: block;
+        margin: 0;
+    }
+
+    /* projects */
+    .projects-container {
+        display: block;
+    }
+    .projects-cat-container {
+        display: block;
+        width: 90%;
+        margin: 30px 0 20px 10%;
+        text-align: left;
+        padding: 0 20px;
+        height: auto;
+    }
+    .projects-cat-li {
+        margin: 10px 20px;
+        font-size: 1.2em;
+    }
+    .projects-box-container {
+        height: auto;
+        max-height: none;
+        width: 90%;
+        display: block;
+        margin: 10px 0 10px 10%;
+        overflow: hidden;
+    }
+    .projects-box {
+        display: inline-block;
+        width: 40%;
+        margin: 4%;
+        padding: 0;
+    }
+    .projects-title {
+        opacity: 1;
+        transform: none;
+        -webkit-transform: none;
+    }
+    .projects-title p {
+        color: #333;
+        background: #fff;
+        opacity: 0.7;
+        padding: 5px 2px;
+        font-size: 0.8em;
+    }
+    .projects-title img {
+        display: none;
+    }
+
+    /* contact */
+    .contact-container {
+        width: 100%;
+        position: relative;
+        display: block;
+        float: none;
+    }
+    .logo-h {
+        position: relative;
+        width: 40%;
+        top: 0;
+        transform: none;
+        margin: 30px auto 0;
+    }
+    .infos {
+        position: relative;
+        width: 80%;
+        padding: 0;
+        right: 0;
+        top: 0;
+        transform: none;
+        text-align: justify;
+        margin: 20px auto;
+    }
+    div#googleMap {
+        width: 80vw;
+        height: 60vh;
+        float: none;
+        position: relative;
+        display: block;
+        margin: auto;
+    }
+}

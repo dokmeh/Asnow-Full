@@ -9,10 +9,12 @@
     <script src="{{ elixir('js/all.js') }}"></script>-->
 <link rel="stylesheet" href="/css/reset.min.css">
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/mediaquery.css">
 <script src="js/jquery-new.js"></script>
 <script src="js/jquery.imageloader.js"></script>
 <script src="js/jquery.touchSwipe.min.js"></script>
 <script src="js/perfect-scrollbar.min.js"></script>
+<script src="/js/script.js"></script>
     {{--<link rel="stylesheet" type="text/css" href="css/reset.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="css/style.css">--}}
     {{--<script src="js/jquery.min.js"></script>--}}
@@ -105,7 +107,7 @@
         <span class="mile"></span><span class="mile"></span><span class="mile"></span>
     </div>
 </div>
-<script src="/js/script.js"></script>
+
 {{--@include('partials.scripts', [$page => $page])--}}
 
 </body>

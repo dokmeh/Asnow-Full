@@ -1,4 +1,5 @@
-@extends('layout')
-
-@section('content')
-@endsection
+<script type="text/javascript">
+    $(document).ready(function() {
+        home();
+    });
+</script>

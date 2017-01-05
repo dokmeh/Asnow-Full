@@ -1,9 +1,6 @@
-@extends('layout_fa')
-
-@section('content')
     <script>
         $(document).ready(function () {
-
+            home();
             $('.menu-but').hide();
             for (var i = 0; i < 17; i++) {
                 $('.enter-line-h').append("<span></span>");
@@ -35,4 +32,3 @@
         })
 
     </script>
-@endsection

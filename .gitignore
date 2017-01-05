@@ -4,6 +4,7 @@
 /vendor
 /.idea
 /database/database.sqlite
+/public/img
 Homestead.json
 Homestead.yaml
 .phpstorm.meta.php

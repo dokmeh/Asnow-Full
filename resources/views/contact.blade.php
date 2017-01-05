@@ -1,6 +1,3 @@
-<div class="map" id="googleMap">
-
-</div>
 <div class="contact-container">
     <div class="logo-h">
         <img src="img/logo-dark.svg" alt=""/>
@@ -15,3 +12,11 @@
         <div><a class="insta" href="#"><img class="insta" src="img/instagram.svg" alt=""/></a></div>
     </div>
 </div>
+<div class="map" id="googleMap">
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        contact();
+    });
+</script>
