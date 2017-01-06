@@ -2,7 +2,7 @@
     <div class="project-info-container">
         <div class="texts-masks backface">
             <h2 class="project-title">{{ $project->title_fa }}</h2>
-            <p>کارفرما:{{ $project->client_fa }}</p>
+            <p>کارفرما:{{ $project->client->name_fa }}</p>
             <p>موقعیت:{{ $project->location_fa }}</p>
             <p>ساخته شده در::{{ $project->completed_at }}</p>
             <p>نوع:{{ $project->category->name_fa }}</p>
@@ -22,13 +22,18 @@
             </div>
         </div>
         <div class="texts-masks backface back-side">
-            @foreach ($project->photos()->sorted()->get() as $photo)
+            {{--            @foreach ($project->photos()->sorted()->get() as $photo)--}}
 
-                <div class="project-img-box-t">
-                    <img src="{{ $photo->image }}" class="project-img-t"
-                         data-src="{{ $photo->image }}">
-                </div>
-            @endforeach
+            <div class="project-img-box-t">
+                <img src="\img\project\photos\thumbnails\1483545333thumb.jpg" class="project-img-t"
+                     data-src="\img\project\photos\thumbnails\1483545333thumb.jpg">
+            </div>
+
+            <div class="project-img-box-t">
+                <img src="\img\project\photos\thumbnails\1483545333thumb.jpg" class="project-img-t"
+                     data-src="\img\project\photos\thumbnails\1483545333thumb.jpg">
+            </div>
+            {{--@endforeach--}}
 
         </div>
     </div>
