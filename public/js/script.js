@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $('body').find('nav.menu ul li').click(function () {
         menu($(this));
@@ -403,6 +404,30 @@ function contact() {
 
 //About
 function about() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+	if ($('body').attr('data-page') == 'about') {
+		console.log('about realy run');
+		var leftPos = (($(window).width() / 10) * 1);
+		$(document).find('.loading').css('left', leftPos + 'px');
+		$('.about-img').imageloader({
+			callback: function (ele) {
+				$(ele).parent().addClass('loaded');
+			}
+		});
+		$('.about-title').each(function () {
+			$(this).css('background-color', 'rgb(' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ')');
+		});
+	}
+}
+=======
+=======
+>>>>>>> origin/master
+    if ($('body').attr('data-page') == 'about') {
+    console.log('about realy run');
+>>>>>>> e0d4c76ee9770e9ad3616ebde67dc08e37cbb075
     var leftPos = (($(window).width() / 10) * 1);
     $(document).find('.loading').css('left', leftPos + 'px');
     $('.about-img').imageloader({
@@ -413,4 +438,15 @@ function about() {
     $('.about-title').each(function () {
         $(this).css('background-color', 'rgb(' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ')');
     });
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+}
+}
+>>>>>>> origin/master
+=======
+}
+}
+>>>>>>> origin/master
+>>>>>>> e0d4c76ee9770e9ad3616ebde67dc08e37cbb075
