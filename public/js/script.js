@@ -54,7 +54,7 @@ function loadAjax(url, method = 'post') {
 
 function home() {
     $('.menu-but').hide();
-        $('.enter-line-h').append("<span></span>");
+    $('.enter-line-h').append("<span></span>");
     setTimeout(function () {
         $('.enter, .enter-text p').click(function () {
             var lang = $(this).attr('data-lang');
@@ -219,7 +219,7 @@ function project() {
             next_img();
         }
     });
-    
+
     $('body').find('.back-but').click(function () {
         $('title').text('Projects');
         $('body').attr('data-page', 'projects');
@@ -404,30 +404,6 @@ function contact() {
 
 //About
 function about() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-	if ($('body').attr('data-page') == 'about') {
-		console.log('about realy run');
-		var leftPos = (($(window).width() / 10) * 1);
-		$(document).find('.loading').css('left', leftPos + 'px');
-		$('.about-img').imageloader({
-			callback: function (ele) {
-				$(ele).parent().addClass('loaded');
-			}
-		});
-		$('.about-title').each(function () {
-			$(this).css('background-color', 'rgb(' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ')');
-		});
-	}
-}
-=======
-=======
->>>>>>> origin/master
-    if ($('body').attr('data-page') == 'about') {
-    console.log('about realy run');
->>>>>>> e0d4c76ee9770e9ad3616ebde67dc08e37cbb075
     var leftPos = (($(window).width() / 10) * 1);
     $(document).find('.loading').css('left', leftPos + 'px');
     $('.about-img').imageloader({
@@ -438,15 +414,5 @@ function about() {
     $('.about-title').each(function () {
         $(this).css('background-color', 'rgb(' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ')');
     });
-<<<<<<< HEAD
 }
-=======
-<<<<<<< HEAD
-}
-}
->>>>>>> origin/master
-=======
-}
-}
->>>>>>> origin/master
->>>>>>> e0d4c76ee9770e9ad3616ebde67dc08e37cbb075
+
