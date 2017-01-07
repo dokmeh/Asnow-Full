@@ -413,6 +413,7 @@ function contact() {
 //About
 function about() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if ($('body').attr('data-page') == 'about') {
 		console.log('about realy run');
 		var leftPos = (($(window).width() / 10) * 1);
@@ -428,6 +429,8 @@ function about() {
 	}
 }
 =======
+=======
+>>>>>>> origin/master
     if ($('body').attr('data-page') == 'about') {
     console.log('about realy run');
     var leftPos = (($(window).width() / 10) * 1);
@@ -440,6 +443,11 @@ function about() {
     $('.about-title').each(function () {
         $(this).css('background-color', 'rgb(' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ')');
     });
+<<<<<<< HEAD
+}
+}
+>>>>>>> origin/master
+=======
 }
 }
 >>>>>>> origin/master
