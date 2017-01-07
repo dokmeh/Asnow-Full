@@ -70,14 +70,14 @@ function home() {
 			}, 600);
 			setTimeout(function () {
 				$('.linehand.l-1-s').removeClass('l-1-s').addClass('l-2-s');
-			}, 1000);
+			}, 900);
 			setTimeout(function () {
 				$('.linehand.l-2-s').removeClass('l-2-s').addClass('l-3-s');
 				$('.enter').addClass('hide3');
-			}, 1600);
+			}, 1200);
 			setTimeout(function () {
 				$('.lng-bar,.logo').addClass('op');
-			}, 2000);
+			}, 1800);
 		});
 
 	}, 4000);
