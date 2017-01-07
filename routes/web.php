@@ -109,10 +109,35 @@
 		});
 		// Request Routes
 		Route::group(['prefix' => 'requests'], function () {
-			Route::get('/', 'AdminsController@requests');
-			Route::get('/{request}/', 'AdminsController@request');
+			Route::get('/', 'RequestsController@requests');
+			Route::get('/{request}/', 'RequestsController@request');
 			Route::get('/{request}/deletebtn', 'RequestsController@destroy');
 			Route::post('/{request}/edit', 'RequestsController@update');
+		});
+
+		Route::group(['prefix' => 'cooperators'], function () {
+			Route::get('/', 'CooperatorsController@cooperators');
+			Route::get('/create', 'CooperatorsController@create');
+			Route::get('/sort', 'CooperatorsController@sort');
+			Route::get('/{cooperator}', 'CooperatorsController@show');
+			Route::get('/{cooperator}/edit', 'CooperatorsController@edit');
+			Route::get('/create/fa/{cooperator}', 'CooperatorsController@createFa');
+			Route::post('/create', 'CooperatorsController@store');
+			Route::post('/{cooperator}/photos', 'CooperatorsController@addPhotos');
+			Route::post('/{cooperator}/thumbnails', 'CooperatorsController@addThumbnails');
+			Route::patch('/{cooperator}/edit', 'CooperatorsController@update');
+			Route::get('/photo/{photo}/deletebtn', 'CooperatorsController@deletePhotos');
+			Route::get('/{cooperator}/deletebtn', 'CooperatorsController@destroy');
+
+
+		});
+
+		Route::group(['prefix' => 'client'], function () {
+			Route::get('/create', 'ClientsController@create');
+			Route::get('/thumbnail/{thumbnail}/deletebtn', 'ClientsController@deleteThumbnail');
+			Route::get('/{client}/deletebtn', 'ClientsController@destroy');
+			Route::post('/{client}/edit', 'ClientsController@update');
+			Route::post('/create', 'ClientsController@store');
 		});
 
 	});
@@ -130,6 +155,6 @@
 
 
 	//	Route::get('/home', 'PagesController@home');
-	//	Route::get('/fa/home', 'PagesController@home_fa');
+	Route::get('/fa/home', 'PagesController@home_fa');
 
 

@@ -1,7 +1,5 @@
 <?php
-
 	namespace App\Http\Controllers;
-
 
 	use App\Category;
 	use App\Event;
@@ -11,27 +9,33 @@
 
 	class PagesController extends Controller {
 
-		public function home()
+		public function home(Request $request)
 		{
 			$page    = 'home';
-			$content = NULL;
-
-			return view('home', compact('page', 'content'));
+			$content = view('home');
+			if ($request->ajax()) {
+				return $content;
+			} else {
+				return view('layout', compact('page', 'content'));
+			}
 		}
 
-		public function home_fa()
+		public function home_fa(Request $request)
 		{
 			$page    = 'home';
-			$content = NULL;
-
-			return view('home_fa', compact('page', 'content'));
+			$content = view('home_fa');
+			if ($request->ajax()) {
+				return $content;
+			} else {
+				return view('layout_fa', compact('page', 'content'));
+			}
 		}
 
 		public function projects(Request $request)
 		{
 			$page       = 'projects';
 			$projects   = Project::sorted()->where('visible', 1)->get();
-			$categories = Category::all();
+			$categories = Category::has('projects')->get();
 			$content    = view('projects', compact('projects', 'categories'));
 			if ($request->ajax()) {
 				return $content;
@@ -44,14 +48,13 @@
 		{
 			$page       = 'projects';
 			$projects   = Project::sorted()->where('visible', 1)->get();
-			$categories = Category::all();
+			$categories = Category::has('projects')->get();
 			$content    = view('projects_fa', compact('projects', 'categories'));
 			if ($request->ajax()) {
 				return $content;
 			} else {
 				return view('layout_fa', compact('page', 'content'));
 			}
-
 		}
 
 		public function request(Request $request)
@@ -75,7 +78,6 @@
 			} else {
 				return view('layout', compact('page', 'content'));
 			}
-
 		}
 
 		public function project_fa(Request $request, $id)
@@ -127,8 +129,6 @@
 			} else {
 				return view('layout', compact('content', 'page'));
 			}
-
-
 		}
 
 		public function events_fa(Request $request)
@@ -153,7 +153,6 @@
 			} else {
 				return view('layout', compact('page', 'content'));
 			}
-
 		}
 
 		public function event_fa(Request $request, Event $event)
@@ -176,7 +175,6 @@
 			} else {
 				return view('layout', compact('content', 'page'));
 			}
-
 		}
 
 		public function contact_fa(Request $request)
@@ -235,4 +233,6 @@
 				return view('layout_fa', compact('content', 'page'));
 			}
 		}
+
 	}
+

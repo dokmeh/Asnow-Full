@@ -18,7 +18,11 @@
         @endforeach
     </div>
 </div>
-
+<script>
+    $(document).ready(function () {
+        events();
+    })
+</script>
 
 
 

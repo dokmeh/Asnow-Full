@@ -33,7 +33,7 @@
 		{
 			$categories = Category::all();
 
-			return view('admin.create-category', compact('categories'));
+			return view('admin.categories.create-category', compact('categories'));
 		}
 
 	}

@@ -68,4 +68,15 @@
 			return redirect('/admin/requests');
 		}
 
+		public function requests()
+		{
+			$requests = Requests::all();
+
+			return view('admin.requests.requests', compact('requests'));
+		}
+
+		public function request(\App\Request $request)
+		{
+			return view('admin.requests.show-request', compact('request'));
+		}
 	}

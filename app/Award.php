@@ -8,16 +8,16 @@
 
 	class Award extends Model {
 		use SortableTrait;
-		protected static $sortableField = 'sort';
 
 		protected $fillable = [
 			'name',
+			'hwllo',
 			'name_fa',
 			'visible',
 			'description',
 			'description_fa',
 			'date',
-			'sort',
+			'position',
 			'project_id',
 		];
 

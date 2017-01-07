@@ -9,8 +9,7 @@
 	class Photo extends Model {
 		use SortableTrait;
 
-		protected static $sortableField = 'sort';
-		protected        $fillable      = ['image', 'name', 'sort'];
+		protected $fillable = ['image', 'name', 'position'];
 
 		public function photoable()
 		{

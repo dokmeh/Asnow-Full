@@ -2,13 +2,6 @@
 <html>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-<script>
-    $(window).load(function () {
-        // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");
-
-    });
-</script>
 <style>
     .no-js #loader { display : none; }
 
@@ -100,8 +93,8 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><img height="35px" width="35px" src="/logo-sign.png"
-                                                                 alt="">
+                    <a href="/admin" class="site_title"><img height="35px" width="35px" src="/logo-sign.png"
+                                                             alt="">
                         <span>Dokmeh Studio</span></a>
                 </div>
 
@@ -137,10 +130,12 @@
 
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-newspaper-o"></i> Publications <span
+                            <li><a><i class="fa fa-sitemap"></i> Cooperators <span
                                             class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/publications">All Publications</a></li>
+                                    <li><a href="/admin/cooperators">All Cooperators</a></li>
+                                    <li><a href="/admin/cooperators/create">Create Cooperator</a></li>
+                                    <li><a href="/admin/cooperators/sort">Sort Cooperators</a></li>
 
                                 </ul>
                             </li>
@@ -278,6 +273,7 @@
 <script src="/gentelella/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
 <script src="/gentelella/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
 <script src="/gentelella/vendors/google-code-prettify/src/prettify.js"></script>
+
 <script>
     $(document).ready(function () {
         $('.datetime').daterangepicker({

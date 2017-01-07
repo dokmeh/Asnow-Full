@@ -5,8 +5,15 @@
     <meta name="_token" content="{{ csrf_token() }}"/>
     <title>Asnow</title>
     <base href="{{ url('/') }}">
-    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
-    <script src="{{ elixir('js/all.js') }}"></script>
+
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mediaquery.css">
+    <script src="js/jquery-new.js"></script>
+    <script src="js/jquery.imageloader.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/perfect-scrollbar.min.js"></script>
+    <script src="/js/script.js"></script>
     {{--<link rel="stylesheet" type="text/css" href="css/reset.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="css/style.css">--}}
     {{--<script src="js/jquery.min.js"></script>--}}
@@ -90,7 +97,6 @@
     </div>
 </div>
 <section class="inner-ajax" id="pjax">
-
     {!! $content !!}
 </section>
 <!--        <img class="menu-but" src="img/menu-icon.svg">-->
@@ -99,8 +105,7 @@
         <span class="mile"></span><span class="mile"></span><span class="mile"></span>
     </div>
 </div>
-<script src="/js/script.js"></script>
-{{--@include('partials.scripts', [$page => $page])--}}
+
 
 </body>
 </html>
