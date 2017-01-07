@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Admin Panel | Register</title>
 
-    <title>Admin Panel | Login </title>
 
-    <!-- Bootstrap -->
-    <link href="/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="/gentelella/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin/login.css">
 
-    <!-- Custom Theme Style -->
-    <link href="/gentelella/build/css/custom.min.css" rel="stylesheet">
+
 </head>
-<body class="login">
+
+<body>
 
 <div class="login_wrapper">
     <div class="form login-form">
@@ -29,29 +17,51 @@
 
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                 {{ csrf_field() }}
-                <h1>Create Account</h1>
+                <h3>Create Account</h3>
 
                 <div>
 
                     <input id="name" type="text" class="form-control" placeholder="Full Name" name="name"
                            value="{{ old('name') }}"
                            required autofocus>
+
+                    @if ($errors->has('name'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                    @endif
                 </div>
                 <div>
 
                     <input placeholder="Email" id="email" type="email" class="form-control" name="email"
                            value="{{ old('email') }}" required>
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                    @endif
                 </div>
                 <div>
 
                     <input placeholder="Password" id="password" type="password" class="form-control"
                            name="password" required>
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                    @endif
                 </div>
                 <div>
 
                     <input placeholder="Confirm Password" id="password-confirm" type="password"
                            class="form-control"
                            name="password_confirmation" required>
+                    @if ($errors->has('password_confirmation'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                    @endif
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">
@@ -61,21 +71,35 @@
             </form>
 
             <div class="separator">
-                <p class="change_link">Asnow Panel Login
-                </p>
+
 
                 <div class="clearfix"></div>
                 <br/>
+                @if (count($errors))
+
+                    <p class="change_link">
+                    <ul>
+                        @foreach ($errors as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+
+                    </ul>
+                    </p>
+                @endif
 
                 <div>
-                    <h1><i class="fa fa-paw"></i> Dokmeh Studio</h1>
-                    <p>©2016 All Rights Reserved. Dokmeh Studio Privacy and Terms
-                    </p>
+                    <h1><img src="/Dokmeh-logo.svg" alt=""></h1>
+                    <small>©2016 All Rights Reserved.
+                        <a href="http://www.dokmeh-studio.com" style="text-decoration: none;">Dokmeh Studio</a> Privacy and Terms
+                    </small>
                 </div>
             </div>
             </form>
         </section>
     </div>
 </div>
+<script src='/js/admin/jquery-new.js'></script>
+<script src="/js/admin/login.js"></script>
+
 </body>
 </html>

@@ -82,16 +82,16 @@
 		{
 			$projects = Project::all();
 
-			return view('admin.awards', compact('projects'));
+			return view('admin.awards.awards', compact('projects'));
 		}
 
 		public function AwardsCreate(Project $project)
 		{
-			return view('admin.awards-create', compact('project'));
+			return view('admin.awards.awards-create', compact('project'));
 		}
 
 		public function AwardsEdit(Award $award)
 		{
-			return view('admin.edit-awards', compact('award'));
+			return view('admin.awards.edit-awards', compact('award'));
 		}
 	}

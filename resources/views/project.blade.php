@@ -1,12 +1,16 @@
-<div class="project-container">
+<div class="back-but">
+    <div class="inner-back-bt">
+        <span class="mile"></span><span class="mile"></span><span class="mile"></span>
+    </div>
+</div><div class="project-container">
     <div class="project-info-container">
         <div class="texts-masks backface">
             <h2 class="project-title">{{ $project->title }}</h2>
-            <p>Client:{{ $project->client }}</p>
-            <p>Location:{{ $project->location }}</p>
-            <p>Date:{{ $project->completed_at }}</p>
-            <p>Type:{{ $project->category->name }}</p>
-            <p>Status:{{ $project->status->name }}</p>
+            <p><small>Client: </small>{{ $project->client }}</p>
+            <p><small>Location: </small>{{ $project->location }}</p>
+            <p><small>Date: </small>{{ $project->completed_at }}</p>
+            <p><small>Type: </small>{{ $project->category->name }}</p>
+            <p><small>Status: </small>{{ $project->status->name }}</p>
             @if (count($project->awards) > 0)
                 <h3>Awards:</h3>
 
@@ -62,7 +66,6 @@
             <div class="project-arrow-f">
                 <div class="arrow fullscreen">
                     <img src="/img/fullscreen.svg" alt=""/>
-                    <img src="/img/close.svg" alt=""/>
                 </div>
                 <div class="arrow slideshow">
                     <img src="/img/pause.svg" alt=""/>
@@ -72,3 +75,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+        $(document).ready(function() {
+        project();
+    });
+</script>

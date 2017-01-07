@@ -12,7 +12,7 @@
 		{
 			$clients = Client::all();
 
-			return view('admin.create-client', compact('clients'));
+			return view('admin.clients.create-client', compact('clients'));
 		}
 
 		public function store(Request $request)

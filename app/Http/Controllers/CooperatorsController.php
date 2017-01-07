@@ -8,18 +8,19 @@
 	use Illuminate\Http\Request;
 
 	class CooperatorsController extends Controller {
+
 		public function cooperators()
 		{
 			$cooperators = Cooperator::all();
 
-			return view('admin.cooperators', compact('cooperators'));
+			return view('admin.cooperators.cooperators', compact('cooperators'));
 		}
 
 		public function create()
 		{
 			$categories = Category::all();
 
-			return view('admin.create-cooperator', compact('categories'));
+			return view('admin.cooperators.create-cooperator', compact('categories'));
 		}
 
 		public function store(Request $request)
@@ -31,7 +32,7 @@
 
 		public function createFa(Cooperator $cooperator)
 		{
-			return view('admin.create-cooperator_fa', compact('cooperator'));
+			return view('admin.cooperators.create-cooperator_fa', compact('cooperator'));
 		}
 
 		public function addPhotos(Request $request, Cooperator $cooperator)
@@ -66,14 +67,14 @@
 
 		public function show(Cooperator $cooperator)
 		{
-			return view('admin.show-cooperator', compact('cooperator'));
+			return view('admin.cooperators.show-cooperator', compact('cooperator'));
 		}
 
 		public function edit(Cooperator $cooperator)
 		{
 			$categories = Category::get();
 
-			return view('admin.edit-cooperator', compact('cooperator', 'categories'));
+			return view('admin.cooperators.edit-cooperator', compact('cooperator', 'categories'));
 		}
 
 		public function update(Request $request, Cooperator $cooperator)
@@ -122,7 +123,7 @@
 		{
 			$cooperators = Cooperator::sorted()->get();
 
-			return view('admin.sort-cooperators', compact('cooperators'));
+			return view('admin.cooperators.sort-cooperators', compact('cooperators'));
 		}
 
 	}

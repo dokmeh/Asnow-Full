@@ -7,6 +7,7 @@
 	use Illuminate\Http\Request;
 
 	class EventsController extends Controller {
+
 		public function store(Request $request)
 		{
 			$event = Event::create($request->all());
@@ -17,7 +18,7 @@
 
 		public function show(Event $event)
 		{
-			return view('admin.show-events', compact('event'));
+			return view('admin.events.show-events', compact('event'));
 		}
 
 		public function addPhotos(Request $request, Event $event)
@@ -93,21 +94,21 @@
 		{
 			$events = Event::all();
 
-			return view('admin.events', compact('events'));
+			return view('admin.events.events', compact('events'));
 		}
 
 		public function EventsCreate()
 		{
-			return view('admin.events-create');
+			return view('admin.events.events-create');
 		}
 
 		public function EventsCreateFa(Event $event)
 		{
-			return view('admin.events-create-fa', compact('event'));
+			return view('admin.events.events-create-fa', compact('event'));
 		}
 
 		public function EventEdit(Event $event)
 		{
-			return view('admin.edit-events', compact('event'));
+			return view('admin.events.edit-events', compact('event'));
 		}
 	}

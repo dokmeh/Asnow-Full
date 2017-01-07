@@ -95,17 +95,17 @@
 		{
 			$projects = Project::all();
 
-			return view('admin.publications', compact('projects'));
+			return view('admin.publications.publications', compact('projects'));
 		}
 
 		public function PublicationsCreate(Project $project)
 		{
 
-			return view('admin.publications-create', compact('project'));
+			return view('admin.publications.publications-create', compact('project'));
 		}
 
 		public function PublicationsEdit(Publication $publication)
 		{
-			return view('admin.edit-publications', compact('publication'));
+			return view('admin.publications.edit-publications', compact('publication'));
 		}
 	}

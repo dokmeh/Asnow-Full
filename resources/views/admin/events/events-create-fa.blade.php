@@ -48,47 +48,7 @@
                     </div>
 
                     <div class="x_content">
-                        <br/>
-                        <form id="demo-form2" action="/admin/events/{{ $event->id }}/edit" method="POST"
-                              data-parsley-validate
-                              class="form-horizontal form-label-left" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            {{ method_field('PATCH') }}
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نام رویداد:
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" name="name_fa" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
 
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">توضیحات: <span
-                                            class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-
-                                    <textarea type="hidden" name="description_fa" title="description" id="description"
-                                              style="display:block;"></textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <a href="/admin/events/create"
-                                       class="btn btn-primary">Cancel</a>
-                                    <button type="submit" id="submit" value="submit" class="btn btn-success">Submit
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-
-                        <div class="ln_solid"></div>
 
                         <h2 class="text-center">Event Photos</h2><br>
                         <form action="/admin/events/{{ $event->id }}/photos" class="dropzone" id="myAwesomeDropzone"
@@ -106,7 +66,8 @@
                             <div class="dz-message" data-dz-message><span>Drop event's Thumbnail here</span></div>
 
                         </form>
-
+                        <br>
+                        <a href="/admin/events/{{ $event->id }}" class="btn btn-primary">Done!</a>
                     </div>
                 </div>
             </div>
