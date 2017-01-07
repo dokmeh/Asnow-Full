@@ -2,7 +2,6 @@
 	namespace App\Http\Controllers;
 
 	use App\Category;
-	use App\Client;
 	use App\Event;
 	use App\Project;
 	use App\Publication;
@@ -96,8 +95,7 @@
 		public function about(Request $request)
 		{
 			$page    = 'about';
-			$clients = Client::all();
-			$content = view('about', compact('clients'));
+			$content = view('about');
 
 
 			if ($request->ajax()) {
@@ -110,9 +108,7 @@
 		public function about_fa(Request $request)
 		{
 			$page    = 'about';
-			$clients = Client::all();
-
-			$content = view('about_fa', compact('clients'));
+			$content = view('about_fa');
 
 
 			if ($request->ajax()) {
