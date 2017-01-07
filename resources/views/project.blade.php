@@ -2,21 +2,15 @@
     <div class="inner-back-bt">
         <span class="mile"></span><span class="mile"></span><span class="mile"></span>
     </div>
-</div>
-<div class="project-container">
+</div><div class="project-container">
     <div class="project-info-container">
         <div class="texts-masks backface">
             <h2 class="project-title">{{ $project->title }}</h2>
-            <p>
-                <small>Client:</small>{{ $project->client->name }}</p>
-            <p>
-                <small>Location:</small>{{ $project->location }}</p>
-            <p>
-                <small>Date:</small>{{ $project->completed_at }}</p>
-            <p>
-                <small>Type:</small>{{ $project->category->name }}</p>
-            <p>
-                <small>Status:</small>{{ $project->status->name }}</p>
+            <p><small>Client: </small>{{ $project->client }}</p>
+            <p><small>Location: </small>{{ $project->location }}</p>
+            <p><small>Date: </small>{{ $project->completed_at }}</p>
+            <p><small>Type: </small>{{ $project->category->name }}</p>
+            <p><small>Status: </small>{{ $project->status->name }}</p>
             @if (count($project->awards) > 0)
                 <h3>Awards:</h3>
 
@@ -32,18 +26,13 @@
             </div>
         </div>
         <div class="texts-masks backface back-side">
-            {{--@foreach ($project->photos()->sorted()->get() as $photo)--}}
+            @foreach ($project->photos()->sorted()->get() as $photo)
 
-            <div class="project-img-box-t">
-                <img src="\img\project\photos\thumbnails\1483545333thumb.jpg" class="project-img-t"
-                     data-src="\img\project\photos\thumbnails\1483545333thumb.jpg">
-            </div>
-
-            <div class="project-img-box-t">
-                <img src="\img\project\photos\thumbnails\1483545333thumb.jpg" class="project-img-t"
-                     data-src="\img\project\photos\thumbnails\1483545333thumb.jpg">
-            </div>
-            {{--@endforeach--}}
+                <div class="project-img-box-t">
+                    <img src="{{ $photo->image }}" class="project-img-t"
+                         data-src="{{ $photo->image }}">
+                </div>
+            @endforeach
 
         </div>
     </div>
@@ -56,17 +45,16 @@
         </div>
     </div>
     <div class="poject-img-container">
+        {{--<div class="project-img-box">--}}
+        {{--<img src="{{ $project->photos->last()->image }}" class="project-img show"--}}
+        {{--onload="$(this).addClass('Loaded')">--}}
+        {{--</div>--}}
+        @foreach ($project->photos()->sorted()->get() as $photo)
 
-        {{--        @foreach ($project->photos()->sorted()->get() as $photo)--}}
-
-        <div class="project-img-box">
-            <img src="\img\project\photos\thumbnails\1483545333thumb.jpg" class="project-img">
-        </div>
-
-        <div class="project-img-box">
-            <img src="\img\project\photos\thumbnails\1483545333thumb.jpg" class="project-img">
-        </div>
-        {{--@endforeach--}}
+            <div class="project-img-box">
+                <img src="{{ $photo->image }}" class="project-img" onload="$(this).addClass('Loaded')">
+            </div>
+        @endforeach
 
         <div class="controlers">
             <div class="project-arrow prev">
@@ -88,7 +76,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
+        $(document).ready(function() {
         project();
     });
 </script>

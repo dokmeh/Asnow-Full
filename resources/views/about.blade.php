@@ -29,55 +29,55 @@
         <div class="about-box-container">
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people1.jpg" data-src="img/people/people1.jpg" class="about-img">
+                    <img src="img/people/people1.jpg" data-src="img/people/people1.jpg" class="about-img">
                     <p class="about-title">Person 1</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people2.jpg" data-src="img/people/people2.jpg" class="about-img">
+                    <img src="img/people/people2.jpg" data-src="img/people/people2.jpg" class="about-img">
                     <p class="about-title">Person 2</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people3.jpg" data-src="img/people/people3.jpg" class="about-img">
+                    <img src="img/people/people3.jpg" data-src="img/people/people3.jpg" class="about-img">
                     <p class="about-title">Person 3</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people4.jpg" data-src="img/people/people4.jpg" class="about-img">
+                    <img src="img/people/people4.jpg" data-src="img/people/people4.jpg" class="about-img">
                     <p class="about-title">Person 4</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people5.jpg" data-src="img/people/people5.jpg" class="about-img">
+                    <img src="img/people/people5.jpg" data-src="img/people/people5.jpg" class="about-img">
                     <p class="about-title">Person 5</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people6.jpg" data-src="img/people/people6.jpg" class="about-img">
+                    <img src="img/people/people6.jpg" data-src="img/people/people6.jpg" class="about-img">
                     <p class="about-title">Person 6</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people7.jpg" data-src="img/people/people7.jpg" class="about-img">
+                    <img src="img/people/people7.jpg" data-src="img/people/people7.jpg" class="about-img">
                     <p class="about-title">Person 7</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people8.jpg" data-src="img/people/people8.jpg" class="about-img">
+                    <img src="img/people/people8.jpg" data-src="img/people/people8.jpg" class="about-img">
                     <p class="about-title">Person 8</p>
                 </div>
             </div>
             <div class="about-box">
                 <div class="about-box-square">
-                    <img src="/img/people/people9.jpg" data-src="img/people/people9.jpg" class="about-img">
+                    <img src="img/people/people9.jpg" data-src="img/people/people9.jpg" class="about-img">
                     <p class="about-title">Person 9</p>
                 </div>
             </div>
@@ -96,30 +96,32 @@
                 itaque saepe. Aliquam autem beatae ex id magnam obcaecati quos sed sequi totam voluptates. Amet
                 architecto doloremque eligendi fugiat impedit ipsum iure molestias mollitia, placeat temporibus
                 voluptatibus?
-            </p><br>
-            <h2 class="about-h">Clients:</h2>
-
+            </p>
         </div>
-
-
-        @foreach ($clients as $client)
-            <div class="about-box-container">
-                <div class="about-box">
-                    <div class="about-box-square">
-                        <img src="\img\project\photos\thumbnails\1483545333thumb.jpg" data-src="\img\project\photos\thumbnails\1483545333thumb.jpg" class="about-img">
-                        @foreach ($client->projects as $project)
-                            <a href="/projects/{{ $project->id }}"><p class="about-title">{{ $project->title}}</p></a>
-                        @endforeach
-
-
-                    </div>
+        <div class="about-box-container">
+            <div class="about-box">
+                <div class="about-box-square">
+                    <img src="img/awards/award1.png" data-src="img/awards/award1.png" class="about-img">
+                    <p class="about-title">Magazin 1</p>
                 </div>
-                @endforeach
             </div>
+            <div class="about-box">
+                <div class="about-box-square">
+                    <img src="img/awards/award2.png" data-src="img/awards/award2.png" class="about-img">
+                    <p class="about-title">Magazin 2</p>
+                </div>
+            </div>
+            <div class="about-box">
+                <div class="about-box-square">
+                    <img src="img/awards/award3.png" data-src="img/awards/award3.png" class="about-img">
+                    <p class="about-title">Magazin 3</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         about();
     });
 </script>
