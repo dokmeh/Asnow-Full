@@ -11,6 +11,7 @@
 
 		protected $fillable = [
 			'name',
+			'hwllo',
 			'name_fa',
 			'visible',
 			'description',
