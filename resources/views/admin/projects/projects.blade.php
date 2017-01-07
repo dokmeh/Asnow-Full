@@ -52,7 +52,7 @@
                             <p>Simple table with project listing with progress and editing options</p>
 
                             <!-- start project list -->
-                            <table id="datatable" class="table table-striped table-bordered">
+                            <table class="table table-striped projects">
                                 <thead>
                                 <tr>
                                     <th style="width: 1%">#</th>
@@ -68,7 +68,7 @@
                                 @foreach ($projects as $project)
 
                                     <tr>
-                                        <td>{{ $project->id }}</td>
+                                        <td>#</td>
                                         <td>
                                             <a>{{ $project->title }}</a>
                                             <br/>
