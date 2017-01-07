@@ -13,8 +13,6 @@
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
@@ -25,8 +23,6 @@
     <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- starrr -->
     <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
@@ -44,7 +40,7 @@
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
-            <div class="profile clearfix">
+            <div class="profile">
               <div class="profile_pic">
                 <img src="images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
@@ -183,7 +179,7 @@
         <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
-            <nav>
+            <nav class="" role="navigation">
               <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
@@ -628,7 +624,8 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">AutoComplete</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10"/>
+                          <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10" style="float: left;" />
+                          <div id="autocomplete-container" style="position: relative; float: left; width: 400px; margin: 10px;"></div>
                         </div>
                       </div>
                       <div class="form-group">
@@ -1289,7 +1286,7 @@
 
                 <h4>Inline Form </h4>
                 <p class="font-gray-dark">
-                  Add .form-inline to your form (which doesn't have to be a <form>) for left-aligned and inline-block controls.
+                  For making labels vertical you have two options, either use the apropiate grid <b>.col-</b> class or wrap the form in the <b>form-vertical</b> class.
                 </p>
                 <form class="form-inline">
                   <div class="form-group">
@@ -1337,8 +1334,8 @@
     <!-- iCheck -->
     <script src="../vendors/iCheck/icheck.min.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
     <!-- bootstrap-wysiwyg -->
     <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
     <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
@@ -1547,7 +1544,8 @@
 
         // initialize autocomplete with custom appendTo
         $('#autocomplete-custom-append').autocomplete({
-          lookup: countriesArray
+          lookup: countriesArray,
+          appendTo: '#autocomplete-container'
         });
       });
     </script>
