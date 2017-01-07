@@ -42,6 +42,11 @@
     <link href="/gentelella/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
     <link href="/gentelella/build/css/custom.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/admin/sweetalert.css">
+    <link href="/gentelella/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 
     <style>
@@ -274,6 +279,22 @@
 <script src="/gentelella/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
 <script src="/gentelella/vendors/google-code-prettify/src/prettify.js"></script>
 
+<script src="/gentelella/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/gentelella/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="/gentelella/vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+<script src="/gentelella/vendors/jszip/dist/jszip.min.js"></script>
+<script src="/gentelella/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="/gentelella/vendors/pdfmake/build/vfs_fonts.js"></script>
+
 <script>
     $(document).ready(function () {
         $('.datetime').daterangepicker({
@@ -355,6 +376,17 @@
 </script>
 <!-- /bootstrap-wysiwyg -->
 
+<!-- Datatables -->
+<script>
+    $(document).ready(function () {
+
+
+        $('#datatable').dataTable({
+            "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]]
+        })
+    });
+</script>
+<!-- /Datatables -->
 @include('partials.flash')
 
 
